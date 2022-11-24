@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
@@ -9,7 +10,7 @@ function Lend (props) {
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [availability, setAvailability] = useState("");
-
+    const {user} = useContext(AuthContext)
     const navigate = useNavigate();
 
     const handleItemName = (e) => setItemName(e.target.value);
@@ -22,7 +23,8 @@ function Lend (props) {
         e.preventDefault();
 
         // Create an object representing the request body
-        const requestBody = { itemName, image, description, availability  };
+        
+        const requestBody = { itemName, image, description, availability, creator: user};
 
         // Make an axios request to the API
         // If POST request is successful redirect to home page
