@@ -18,14 +18,13 @@ function Navbar() {
         {isLoggedIn && (
   <>
         <Link to="/home"><img src="images/logo.png" alt="Logo"/></Link>    
-        <Link to="/profile">Profile</Link> 
+        <Link to="/profile">{user.username}'s Profile</Link> 
         <Link to="/borrow">Borrow</Link>  
         <Link to="/lend">Lend</Link>  
         <Link to="/messages">Messages</Link>   
         <Link to="/about">About Neighbourly</Link>    
         <Link to="/help">Help</Link>    
         <Link onClick={logOutUser}>Logout</Link>
-          <span>{user && user.username}</span>
         </>
         )}
         </nav>

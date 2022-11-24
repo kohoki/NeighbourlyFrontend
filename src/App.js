@@ -11,6 +11,8 @@ import Messages from './pages/Messages';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
+import IsPrivate from './components/IsPrivate';
+import IsAnon from './components/IsAnon';
 
 
 
@@ -19,14 +21,14 @@ function App() {
     <div>
       <Navbar/>
 <Routes>
-  <Route path='/' element={<Welcome/>}/>
-  <Route path='/signup' element={<Signup/>}/>
-  <Route path='/login' element={<Login/>}/>
-  <Route path='/home' element={<Home/>}/>
-  <Route path='/profile' element={<Profile/>}/>
-  <Route path='/lend' element={<Lend/>}/>
-  <Route path='/borrow' element={<Borrow/>}/>
-  <Route path='/messages' element={<Messages/>}/>
+  <Route path='/' element={<IsAnon><Welcome/></IsAnon>}/>
+  <Route path='/signup' element={<IsAnon><Signup/></IsAnon>}/>
+  <Route path='/login' element={<IsAnon><Login/></IsAnon>}/>
+  <Route path='/home' element={<IsPrivate><Home/></IsPrivate>}/>
+  <Route path='/profile' element={<IsPrivate><Profile/></IsPrivate>}/>
+  <Route path='/lend' element={<IsPrivate><Lend/></IsPrivate>}/>
+  <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
+  <Route path='/messages' element={<IsPrivate><Messages/></IsPrivate>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/help' element={<Help/>}/>
 </Routes>
