@@ -20,10 +20,9 @@ useEffect(() => {
 
     return profile ? (
         <div>
-            <h1>Hi there</h1>
- 
+            <h1>Hi there {profile.username}</h1> 
+            <Link to={`/profile/${user._id}/edit`}>Update Profile<img src="images/pen.png" alt="pen"/></Link> 
             <img src={profile.userImage}/>
-            <p>Update Photo</p>
             <h2>Rating ⭐ {profile.rating}</h2>
             <h2>About Me</h2>
             <h3>{profile.firstName} {profile.lastName}</h3>
@@ -36,6 +35,7 @@ useEffect(() => {
             <div>
                 <h2>Items Lent</h2>
                 <Link to="/lend">Add Item</Link>
+                
             </div>
         </div>
     ) 
