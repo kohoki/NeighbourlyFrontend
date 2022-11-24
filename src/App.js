@@ -13,11 +13,8 @@ import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
-<<<<<<< HEAD
-import Edit from './pages/Edit';
-=======
 import LentItems from './pages/LentItems';
->>>>>>> lisa
+import Edit from './pages/Edit';
 
 
 
@@ -31,11 +28,8 @@ function App() {
   <Route path='/login' element={<IsAnon><Login/></IsAnon>}/>
   <Route path='/home' element={<IsPrivate><Home/></IsPrivate>}/>
   <Route path='/profile/:userId' element={<IsPrivate><Profile/></IsPrivate>}/>
-<<<<<<< HEAD
-  <Route path='/profile/:userId/edit' element={<IsPrivate><Edit/></IsPrivate>}/>
-=======
   <Route path='/profile/lentItems/:userId' element={<IsPrivate><LentItems/></IsPrivate>}/>
->>>>>>> lisa
+  <Route path='/profile/:userId/edit' element={<IsPrivate><Edit/></IsPrivate>}/>
   <Route path='/lend' element={<IsPrivate><Lend/></IsPrivate>}/>
   <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
   <Route path='/messages' element={<IsPrivate><Messages/></IsPrivate>}/>
