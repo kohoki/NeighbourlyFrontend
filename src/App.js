@@ -25,7 +25,7 @@ function App() {
   <Route path='/signup' element={<IsAnon><Signup/></IsAnon>}/>
   <Route path='/login' element={<IsAnon><Login/></IsAnon>}/>
   <Route path='/home' element={<IsPrivate><Home/></IsPrivate>}/>
-  <Route path='/profile' element={<IsPrivate><Profile/></IsPrivate>}/>
+  <Route path='/profile/:userId' element={<IsPrivate><Profile/></IsPrivate>}/>
   <Route path='/lend' element={<IsPrivate><Lend/></IsPrivate>}/>
   <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
   <Route path='/messages' element={<IsPrivate><Messages/></IsPrivate>}/>
