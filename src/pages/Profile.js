@@ -26,8 +26,16 @@ useEffect(() => {
             <h2>Rating ⭐ {profile.rating}</h2>
             <h2>About Me</h2>
             <h3>{profile.firstName} {profile.lastName}</h3>
-            <h3>Location</h3>
-            <h3>{profile.aboutMe}</h3>
+            <p>{profile.aboutMe}</p>
+
+            <div>
+            <h2>Addresses</h2>
+            <Link to={`/profile/${user._id}/address`}>Update Addresses</Link>
+            <h3>Default Address: </h3>
+            {profile.addresses.map((address) => 
+                <p>{address.number}</p>)}
+            </div>
+           
             <div>
                 <h2>Items Borrowed</h2>
                 <Link to="/borrow">Add Item</Link>

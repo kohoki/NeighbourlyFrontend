@@ -15,6 +15,7 @@ import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
 import LentItems from './pages/LentItems';
 import Edit from './pages/Edit';
+import Address from './pages/Address';
 
 
 
@@ -30,6 +31,7 @@ function App() {
   <Route path='/profile/:userId' element={<IsPrivate><Profile/></IsPrivate>}/>
   <Route path='/profile/lentItems/:userId' element={<IsPrivate><LentItems/></IsPrivate>}/>
   <Route path='/profile/:userId/edit' element={<IsPrivate><Edit/></IsPrivate>}/>
+  <Route path="/profile/:userId/address" element={<IsPrivate><Address/></IsPrivate>}/>
   <Route path='/lend' element={<IsPrivate><Lend/></IsPrivate>}/>
   <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
   <Route path='/messages' element={<IsPrivate><Messages/></IsPrivate>}/>

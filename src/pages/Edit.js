@@ -17,7 +17,6 @@ function Edit (props) {
     const [image, setImage] = useState();
     const [password, setPassword] = useState();
     const [aboutMe, setAboutMe] = useState();
-    const [address, setAddress] = useState([]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -27,10 +26,10 @@ function Edit (props) {
             setFirstName(userObj.firstName)     
             setLastName(userObj.lastName)
             setEmail(userObj.email)
-            setImage(userObj.userImage)
+            setImage()
             setPassword(userObj.password)
             setAboutMe(userObj.aboutMe)
-            setAddress(userObj.addresses)
+
         }
         fetchUser();
     }, [] )
@@ -43,13 +42,12 @@ function Edit (props) {
     const handleEmail = (e) => setEmail(e.target.value);
     const handleImage = (e) => setImage(e.target.value);
     const handleAboutMe = (e) => setAboutMe(e.target.value);
-    const handleAddress = (e) => setAddress([e.target.value]);
     const [errorMessage, setErrorMessage] = useState(undefined);
 
     const handleCreateSubmit = (e) => {
         e.preventDefault();
         
-        const requestBody = { username, firstName, lastName, email, userImage: image, aboutMe, addresses: address};
+        const requestBody = { username, firstName, lastName, email, userImage: image, aboutMe};
 
         axios.put(`${API_URL}/profile/${user._id}`, requestBody)
           .then((response) => {
@@ -91,6 +89,14 @@ function Edit (props) {
             onChange={handleLastName}
           />
 
+          <label>Update your Profile Image: </label>
+          <input 
+            type="file"
+            name="image"
+            value={image}
+            onChange={handleImage}
+          />
+
         <label>Email:</label>
           <input 
             type="email"
@@ -106,15 +112,7 @@ function Edit (props) {
             value={aboutMe}
             onChange={handleAboutMe}
           />
-
-        <label>Address:</label>
-          <input 
-            type="text"
-            name="address"
-            value={address}
-            onChange={handleAddress}
-          />
-   
+          
           <button type="submit">Update</button>
         </form>
 
