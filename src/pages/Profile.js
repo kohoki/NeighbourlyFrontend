@@ -43,6 +43,7 @@ useEffect(() => {
             <div>
                 <h2>Items Lent</h2>
                 <Link to="/lend">Add Item</Link>
+                <Link to={`/profile/lentItems/${user._id}`}>All created items</Link>
                 
             </div>
         </div>
