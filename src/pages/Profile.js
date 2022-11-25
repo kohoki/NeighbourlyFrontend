@@ -31,7 +31,7 @@ useEffect(() => {
             <div>
             <h2>Addresses</h2>
             <Link to={`/profile/${user._id}/address`}>Update Addresses</Link>
-            <h3>Default Address: </h3>
+            <h3>Main Address: </h3>
             {profile.addresses.map((address) => 
                 <p>{address.number}</p>)}
             </div>
