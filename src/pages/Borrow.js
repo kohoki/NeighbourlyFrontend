@@ -17,6 +17,8 @@ function Borrow () {
         fetchItems();
     }, []);
 
+    console.log(items)
+
     return items? (
         <div >
             <h1>What are you looking for? </h1>
