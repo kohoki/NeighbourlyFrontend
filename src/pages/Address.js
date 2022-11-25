@@ -15,8 +15,6 @@ function Address (props) {
     const [street, setStreet] = useState("");
     const [postalCode, setPostalCode] = useState("");
     const [city, setCity] = useState("");
-    
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAddress = async () => {
@@ -39,8 +37,14 @@ function Address (props) {
     const requestBody = { nameOfAddress: name, number, street, postalCode, city, creator: user};
 
     axios.post(`${API_URL}/address/${userId}/create`, requestBody)
-    .then(() => {
-    navigate(`/profile/${userId}/address`);
+    .then((response) => {
+        console.log(response)
+    setAddresses([response.data.newAddress,...addresses])
+    setName("");
+    setNumber("");
+    setStreet("");
+    setPostalCode("");
+    setCity("");
     })
     .catch((error) => {
     const errorDescription = error.response.data.message;
