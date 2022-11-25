@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost:5005"
 
@@ -17,15 +18,16 @@ function Borrow () {
     }, []);
 
     return items? (
-        <div>
+        <div >
             <h1>What are you looking for? </h1>
             {items.map(item => (
-                <div key={item._id}>
+                <div key={item._id} className="itemsToBorrow">
                 <p>Item name: {item.itemName}</p>
                 <p>Image: <img src={item.image} alt="item-pic"/></p>
                 <p>Description: {item.description}</p>
                 <p>Availability: {item.availability}</p>
-                <p>Creator: {item.creator}</p>
+                <p>Creator: {item.creator.username}</p>
+                <Link to={`/borrow/${item._id}`}>Contact Lender</Link>
                 </div>
             ))}
         </div>
