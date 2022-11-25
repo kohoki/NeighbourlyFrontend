@@ -11,3 +11,11 @@ align-items: center;
 .Link {
     padding: 20px;
 }
+
+.itemsToBorrow {
+    border: solid black 2px;
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 50%;
+}
+
