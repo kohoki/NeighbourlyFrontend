@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
+import EditAddress from "../components/EditAddress";
+import DeleteAddress from "../components/DeleteAddress";
 
 const API_URL = "http://localhost:5005";
 
@@ -115,8 +117,8 @@ function Address (props) {
 <li className="ListItem">{address.postalCode}</li>
 <li className="ListItem">{address.city}</li>
 </ul>
-<button>Edit Address</button>
-<button>Delete Address</button>
+<EditAddress/>
+<DeleteAddress addressId={address._id} addresses={addresses} setAddresses={setAddresses}/>
 </div>
 )}
 
