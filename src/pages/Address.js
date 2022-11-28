@@ -8,7 +8,7 @@ import DeleteAddress from "../components/DeleteAddress";
 
 const API_URL = "http://localhost:5005";
 
-function Address (props) {
+function Address () {
     const {user} = useContext(AuthContext)
     const {userId} = useParams()
     const [addresses, setAddresses] = useState()
@@ -20,8 +20,9 @@ function Address (props) {
 
     useEffect(() => {
         const fetchAddress = async () => {
-            let response = await axios.get(`${API_URL}/address/${user._id}`)
+            let response = await axios.get(`${API_URL}/address/${userId}`)
            setAddresses(response.data.addresses)
+       
         }
         fetchAddress();
     }, [])
@@ -110,15 +111,15 @@ function Address (props) {
             <h2>Current Addresses</h2>
 
 {addresses.map((address) =>
-<div>
-<ul key={address._id}>
+<div key={address._id}>
+<ul>
 <li className="ListItem">{address.nameOfAddress}</li>
 <li className="ListItem">{address.number} {address.street}</li>
 <li className="ListItem">{address.postalCode}</li>
 <li className="ListItem">{address.city}</li>
 </ul>
-<EditAddress/>
-<DeleteAddress addressId={address._id} addresses={addresses} setAddresses={setAddresses}/>
+<EditAddress addressId={address._id} userId={userId} setAddresses={setAddresses}/>
+<DeleteAddress addressId={address._id} userId={userId} setAddresses={setAddresses}/>
 </div>
 )}
 

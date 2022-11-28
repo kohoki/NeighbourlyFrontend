@@ -8,15 +8,17 @@ const API_URL = "http://localhost:5005"
 function Profile () {
 const { user } = useContext(AuthContext);
 const [ profile, setProfile ] = useState()
+const [address, setAddress] = useState()
 
 useEffect(() => {
     const fetchUser = async () => {
         let response = await axios.get(`${API_URL}/profile/${user._id}`)
         setProfile(response.data.user)
+        setAddress(response.data.user.addresses[0])
+        
     }
     fetchUser();
 }, [])
-
 
     return profile ? (
         <div>
@@ -30,10 +32,16 @@ useEffect(() => {
 
             <div>
             <h2>Addresses</h2>
-            <Link to={`/profile/${user._id}/address`}>Update Addresses</Link>
             <h3>Main Address: </h3>
-            {profile.addresses.map((address) => 
-                <p>{address.number}</p>)}
+            <div>
+            <ul>
+        <li className="ListItem">{address.nameOfAddress}</li>
+        <li className="ListItem">{address.number} {address.street}</li>
+        <li className="ListItem">{address.postalCode}</li>
+        <li className="ListItem">{address.city}</li>
+            </ul>
+            </div>
+            <Link to={`/profile/${user._id}/address`}>Update Addresses</Link>
             </div>
            
             <div>

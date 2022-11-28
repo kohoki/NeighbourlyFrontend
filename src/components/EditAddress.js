@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
-function EditAddress() {
+const API_URL = "http://localhost:5005";
 
-    return (
+function EditAddress({addressId, setAddresses, userId}) {
+const navigate = useNavigate();
+const handleEdit = () => {
+navigate(`/profile/${userId}/address/${addressId}/edit`)
+} 
+
+return (
 <>
-<button>Edit Address</button>
+<button type="submit" onClick={handleEdit}>Edit Address</button>
 </>
     )
 }
