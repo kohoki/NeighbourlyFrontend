@@ -17,6 +17,7 @@ import LentItems from './pages/LentItems';
 import Edit from './pages/Edit';
 import BorrowItem from './pages/BorrowItem';
 import Address from './pages/Address';
+import EditAddressForm from './pages/EditAddressForm';
 
 
 
@@ -33,6 +34,7 @@ function App() {
   <Route path='/profile/lentItems/:userId' element={<IsPrivate><LentItems/></IsPrivate>}/>
   <Route path='/profile/:userId/edit' element={<IsPrivate><Edit/></IsPrivate>}/>
   <Route path="/profile/:userId/address" element={<IsPrivate><Address/></IsPrivate>}/>
+  <Route path="/profile/:userId/address/:addressId/edit" element={<IsPrivate><EditAddressForm/></IsPrivate>}/>
   <Route path='/lend' element={<IsPrivate><Lend/></IsPrivate>}/>
   <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
   <Route path='/borrow/:itemId' element={<IsPrivate><BorrowItem/></IsPrivate>}/>
