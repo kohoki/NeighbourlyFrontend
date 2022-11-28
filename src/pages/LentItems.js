@@ -8,7 +8,7 @@ const API_URL = "http://localhost:5005"
 
 function LentItems () {
     const { user } = useContext(AuthContext);
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState();
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -27,9 +27,10 @@ function LentItems () {
                 <p>Image: <img src={item.image} alt="item-pic"/></p>
                 <p>Description: {item.description}</p>
                 <p>Availability: {item.availability}</p>
-                <DeleteItem userId ={user._id} itemId ={item._id} setItems ={setItems}/>
+                <DeleteItem userId={user._id} itemId={item._id} setItems={setItems}/>
                 </div>
             ))}
+            <Link className="Link" to="/lend">Loan Another Item</Link>
         </div>
     ) 
     : (

@@ -12,6 +12,10 @@ align-items: center;
     padding: 20px;
 }
 
+.Button {
+    margin: 20px;
+}
+
 .ListItem {
     list-style: none;
 }
