@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
+import { Route, Routes } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -12,7 +13,6 @@ function Messages() {
   useEffect(() => {
     const fetchMessages = async () => {
       let response = await axios.post(`${API_URL}/messages/${user._id}`);
-
       setMessages(response.data.messagesOfUser);
     };
     fetchMessages();
@@ -25,7 +25,8 @@ function Messages() {
         {messages.map((message) => (
           <div>
             <ul className="ListItem">
-              <Link key={message._id} to={`details/${message._id}`}>
+              {console.log(message._id)}
+              <Link to={`/messages/details/${message._id}`}>
                 <li style={{ borderStyle: "solid" }} key={message._id}>
                   Item:{" "}
                   <img
@@ -43,7 +44,9 @@ function Messages() {
           </div>
         ))}
       </div>
-      <div>Your Messages</div>
+      <div>
+        <p>Message</p>
+      </div>
     </div>
   ) : (
     <div>is Loading</div>

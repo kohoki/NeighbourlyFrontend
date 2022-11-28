@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Lend from "./pages/Lend";
 import Borrow from "./pages/Borrow";
 import Messages from "./pages/Messages";
+import MessageDetail from "./pages/MessageDetail";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
@@ -129,10 +130,10 @@ function App() {
           }
         />
         <Route
-          path="/messages/details"
+          path="/messages/details/:id"
           element={
             <IsPrivate>
-              <Messages />
+              <MessageDetail />
             </IsPrivate>
           }
         />
