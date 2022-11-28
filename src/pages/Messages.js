@@ -12,21 +12,28 @@ function Messages() {
   useEffect(() => {
     const fetchMessages = async () => {
       let response = await axios.post(`${API_URL}/messages/${user._id}`);
-      setMessages(response.data.messages);
+
+      setMessages(response.data.messagesOfUser);
     };
     fetchMessages();
   }, []);
 
-  return (
+  console.log(messages);
+  return messages ? (
     <div>
+      TEst
       {messages.map((message) => (
         <div>
           <ul className="ListItem">
-            <li key={message._id}>{message.borrower}</li>
+            <li style={{ borderStyle: "dotted" }} key={message._id}>
+              {message.item.itemName}
+            </li>
           </ul>
         </div>
       ))}
     </div>
+  ) : (
+    <div>is Loading</div>
   );
 }
 
