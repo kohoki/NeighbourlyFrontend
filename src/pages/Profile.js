@@ -41,17 +41,17 @@ useEffect(() => {
         <li className="ListItem">{address.city}</li>
             </ul>
             </div>
-            <Link to={`/profile/${user._id}/address`}>Update Addresses</Link>
+            <Link className="Link" to={`/profile/${user._id}/address`}>Update Addresses</Link>
             </div>
            
             <div>
                 <h2>Items Borrowed</h2>
-                <Link to="/borrow">Add Item</Link>
+                <Link className="Link" to="/borrow">Look for Something to Borrow</Link>
             </div>
             <div>
-                <h2>Items Lent</h2>
-                <Link to="/lend">Add Item</Link>
-                <Link to={`/profile/lentItems/${user._id}`}>All created items</Link>
+                <h2>Items Loaned</h2>
+                <Link className="Link" to="/lend">Lend a New Item</Link>
+                <Link className="Link" to={`/profile/lentItems/${user._id}`}>All Loaned Items</Link>
                 
             </div>
         </div>
