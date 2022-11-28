@@ -34,7 +34,7 @@ function BorrowItem (props) {
             const requestBody = {item: itemId.itemId, lender: lender._id, borrower: user._id, communication: [{message: message, userId: user._id}]};
             console.log(requestBody)
 
-            const postMessage = await axios.post(`${API_URL}/messages`, requestBody);
+            const postMessage = await axios.post(`${API_URL}/messages/create`, requestBody);
             navigate(`/profile/${user._id}`);
         } catch (error) {
             const errorDescription = error.response.data.message;
