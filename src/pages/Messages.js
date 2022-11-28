@@ -20,17 +20,30 @@ function Messages() {
 
   console.log(messages);
   return messages ? (
-    <div>
-      TEst
-      {messages.map((message) => (
-        <div>
-          <ul className="ListItem">
-            <li style={{ borderStyle: "dotted" }} key={message._id}>
-              {message.item.itemName}
-            </li>
-          </ul>
-        </div>
-      ))}
+    <div style={{ display: "flex" }}>
+      <div>
+        {messages.map((message) => (
+          <div>
+            <ul className="ListItem">
+              <Link key={message._id} to={`details/${message._id}`}>
+                <li style={{ borderStyle: "solid" }} key={message._id}>
+                  Item:{" "}
+                  <img
+                    src={message.image_url}
+                    className="card-img-top"
+                    alt="..."
+                  />
+                  {message.item.itemName} / Lender of item:{" "}
+                  {message.lender.username}
+                  <br></br> / person might borrow some:{" "}
+                  {message.borrower.username}
+                </li>
+              </Link>
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div>Your Messages</div>
     </div>
   ) : (
     <div>is Loading</div>
