@@ -32,16 +32,19 @@ useEffect(() => {
 
             <div>
             <h2>Addresses</h2>
-            <h3>Main Address: </h3>
-            <div>
-            <ul>
-        <li className="ListItem">{address.nameOfAddress}</li>
-        <li className="ListItem">{address.number} {address.street}</li>
-        <li className="ListItem">{address.postalCode}</li>
-        <li className="ListItem">{address.city}</li>
-            </ul>
-            </div>
-            <Link className="Link" to={`/profile/${user._id}/address`}>Update Addresses</Link>
+            {address ? (
+                <>
+              <h3>Main Address: </h3>
+                <ul>
+                    <li className="ListItem">{address.nameOfAddress}</li>
+                    <li className="ListItem">{address.number} {address.street}</li>
+                    <li className="ListItem">{address.postalCode}</li>
+                    <li className="ListItem">{address.city}</li>
+                </ul> 
+                </>
+            ) : (<></>)}
+            
+            <Link to={`/profile/${user._id}/address`}>Update Addresses</Link>
             </div>
            
             <div>
