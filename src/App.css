@@ -12,6 +12,18 @@ align-items: center;
     padding: 20px;
 }
 
+.Image {
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+}
+
+.Icon {
+    width: 30px;
+    height: 30px;
+    padding-left: 10px;
+}
+
 .Button {
     margin: 20px;
 }

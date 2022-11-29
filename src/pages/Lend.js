@@ -14,36 +14,30 @@ function Lend (props) {
     const navigate = useNavigate();
 
     const handleItemName = (e) => setItemName(e.target.value);
-    const handleImage = (e) => setImage(e.target.value);
     const handleDescription = (e) => setDescription(e.target.value);
     const handleAvailability = (e) => setAvailability(e.target.value);
     const [errorMessage, setErrorMessage] = useState(undefined);
 
-    const handleCreateSubmit = (e) => {
-        e.preventDefault();
-
-        // Create an object representing the request body
-        
-        const requestBody = { itemName, image, description, availability, creator: user};
-
-        // Make an axios request to the API
-        // If POST request is successful redirect to home page
-        // If the request resolves with an error, set the error message in the state
-        axios.post(`${API_URL}/item/${user._id}`, requestBody)
-          .then(() => {
-            navigate(`/profile/lentItems/${user._id}`);
-          })
-          .catch((error) => {
-            const errorDescription = error.response.data.message;
-            setErrorMessage(errorDescription);
-          })
+    const handleCreateSubmit = async (event) => {
+        event.preventDefault();
+      const image = event.target.imageUrl.files[0];
+      console.log("HI", image)
+      const formData = new FormData();
+      formData.append("imageUrl", image);
+      formData.append("itemName", itemName);
+      formData.append("description", description);
+      formData.append("availability", availability);
+      formData.append("creator", user);
+      const response = await axios.post(`${API_URL}/item/${user._id}`, formData)
+      console.log("Hello", response)
+      navigate(`/profile/lentItems/${user._id}`);
     };
-
 
     return (
         <div className="LendPage">
             <h1>Sharing is caring. What would you like to lend?</h1>
-            <form onSubmit={handleCreateSubmit}>
+            <h2>Add your item's details</h2>
+        <form onSubmit={handleCreateSubmit} encType="multipart/form-data">
         <label>Item name:</label>
           <input 
             type="text"
@@ -52,13 +46,12 @@ function Lend (props) {
             onChange={handleItemName}
           />
 
-          <label>Select an image:</label>
+          <label>Item image:</label>
           <input 
-            type="file"
-            name="image"
-            value={image}
-            onChange={handleImage}
-          />
+            type="file" 
+            name="imageUrl" 
+            accept="image/png, image/jpg"
+            />
    
           <label>Description:</label>
           <input 
@@ -78,6 +71,8 @@ function Lend (props) {
    
           <button type="submit">Create item for lending</button>
         </form>
+            
+
 
         { errorMessage && <p className="error-message">{errorMessage}</p> }
         </div>

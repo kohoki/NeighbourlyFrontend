@@ -7,9 +7,6 @@ const API_URL = "http://localhost:5005";
 
 function Edit (props) {
     const {user} = useContext(AuthContext)
-
-  
-
     const [username, setUsername] = useState();
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
@@ -59,13 +56,20 @@ function Edit (props) {
           })
     };
 
-    
+    const handleUpload = async (event) => {
+      event.preventDefault();
+      const image = event.target.imageUrl.files[0];
+      const formData = new FormData();
+      formData.append("imageUrl", image);
+      await axios.post(`${API_URL}/api/${user._id}/upload`, formData)
+      await navigate(`/profile/${user._id}`)
+    }
 
     return (
         <div>
             <h1>Update your Profile Details</h1>
             <h2>User Image</h2>
-            <form method="POST" action={`${API_URL}/api/upload`} enctype="multipart/form-data">
+            <form onSubmit={handleUpload}>
             <input type="file" name="imageUrl" accept="image/png, image/jpg"/>
             <button type="submit">Upload</button> 
             </form>  
