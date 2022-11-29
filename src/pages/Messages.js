@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
-import { Route, Routes } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 

@@ -56,7 +56,11 @@ function MessageDetail() {
       event.preventDefault();
       const newSend = { message: borrowMessage, userId: user._id };
       await axios.post(`${API_URL}/messages/${id}/update`, newSend);
-      await axios.put(`${API_URL}/item/${message.item._id}/status`);
+      const bodyForItem = { id: message.borrower._id };
+      await axios.put(
+        `${API_URL}/item/${message.item._id}/status`,
+        bodyForItem
+      );
       refreshPage();
     } catch (error) {
       console.log(error);
@@ -85,9 +89,19 @@ function MessageDetail() {
 
         <button type="submit">send</button>
       </form>
-      <form onSubmit={handleYouCan}>
-        <button type="submit">you can borrow it</button>
-      </form>
+      {/* {console.log("AA:", user.username)} */}
+      {(() => {
+        if (
+          (user.username === message.lender.username) &
+          !message.item.borrowed
+        ) {
+          return (
+            <form onSubmit={handleYouCan}>
+              <button type="submit">you can borrow it</button>
+            </form>
+          );
+        }
+      })()}
     </div>
   ) : (
     <div>is Loading</div>
