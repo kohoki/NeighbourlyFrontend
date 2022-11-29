@@ -118,7 +118,7 @@ function Address () {
 <li className="ListItem">{address.postalCode}</li>
 <li className="ListItem">{address.city}</li>
 </ul>
-<EditAddress addressId={address._id} userId={userId} setAddresses={setAddresses}/>
+<EditAddress addressId={address._id} userId={userId}/>
 <DeleteAddress addressId={address._id} userId={userId} setAddresses={setAddresses}/>
 </div>
 )}

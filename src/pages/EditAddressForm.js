@@ -1,7 +1,6 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 

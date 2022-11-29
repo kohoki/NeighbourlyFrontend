@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
-
-function EditAddress({addressId, setAddresses, userId}) {
+function EditAddress({addressId, userId}) {
 const navigate = useNavigate();
 const handleEdit = () => {
 navigate(`/profile/${userId}/address/${addressId}/edit`)

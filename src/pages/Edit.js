@@ -64,6 +64,12 @@ function Edit (props) {
     return (
         <div>
             <h1>Update your Profile Details</h1>
+            <h2>User Image</h2>
+            <form method="POST" action={`${API_URL}/api/upload`} enctype="multipart/form-data">
+            <input type="file" name="imageUrl" accept="image/png, image/jpg"/>
+            <button type="submit">Upload</button> 
+            </form>  
+            <h2>User Details</h2>
             <form onSubmit={handleCreateSubmit}>
         <label>Username: </label>
           <input 

@@ -1,17 +1,30 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
-function Lend (props) {
-    const [itemName, setItemName] = useState("");
-    const [image, setImage] = useState("");
-    const [description, setDescription] = useState("");
-    const [availability, setAvailability] = useState("");
-    const {user} = useContext(AuthContext)
-    const navigate = useNavigate();
+function EditItemForm () {
+const {itemId, userId} = useParams()
+
+const [itemName, setItemName] = useState("");
+const [image, setImage] = useState("");
+const [description, setDescription] = useState("");
+const [availability, setAvailability] = useState("");
+
+    useEffect(() => {
+        const fetchAddress = async () => {
+            let response = await axios.get(`${API_URL}/item/borrow/${itemId}`)
+           const itemObj = response.data.item;
+          setItemName(itemObj.itemName)   
+            setImage()     
+            setDescription(itemObj.description)
+            setAvailability(itemObj.availability)
+        }
+        fetchAddress();
+    }, [] ) 
+   
+   const navigate = useNavigate();
 
     const handleItemName = (e) => setItemName(e.target.value);
     const handleImage = (e) => setImage(e.target.value);
@@ -21,30 +34,25 @@ function Lend (props) {
 
     const handleCreateSubmit = (e) => {
         e.preventDefault();
-
-        // Create an object representing the request body
         
-        const requestBody = { itemName, image, description, availability, creator: user};
+        const requestBody = { itemName, image, description, availability};
 
-        // Make an axios request to the API
-        // If POST request is successful redirect to home page
-        // If the request resolves with an error, set the error message in the state
-        axios.post(`${API_URL}/item/${user._id}`, requestBody)
+        axios.put(`${API_URL}/item/${itemId}/edit`, requestBody)
           .then(() => {
-            navigate(`/profile/lentItems/${user._id}`);
+            navigate(`/profile/lentItems/${userId}`);
           })
           .catch((error) => {
             const errorDescription = error.response.data.message;
             setErrorMessage(errorDescription);
-          })
-    };
-
+          }) 
+    }; 
 
     return (
-        <div className="LendPage">
-            <h1>Sharing is caring. What would you like to lend?</h1>
+        
+        <div>
+            <h1>Update Item Details</h1>
             <form onSubmit={handleCreateSubmit}>
-        <label>Item name:</label>
+            <label>Item name:</label>
           <input 
             type="text"
             name="itemName"
@@ -75,13 +83,14 @@ function Lend (props) {
             value={availability}
             onChange={handleAvailability}
           />
-   
-          <button type="submit">Create item for lending</button>
+          
+          <button type="submit">Update</button>
         </form>
 
         { errorMessage && <p className="error-message">{errorMessage}</p> }
         </div>
-    )
+    ) 
 }
 
-export default Lend;
+
+export default EditItemForm

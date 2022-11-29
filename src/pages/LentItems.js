@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import DeleteItem from "../components/DeleteItem";
+import EditItem from "../components/EditItem";
 
 const API_URL = "http://localhost:5005"
 
@@ -27,6 +28,7 @@ function LentItems () {
                 <p>Image: <img src={item.image} alt="item-pic"/></p>
                 <p>Description: {item.description}</p>
                 <p>Availability: {item.availability}</p>
+                <EditItem userId={user._id} itemId={item._id}/>
                 <DeleteItem userId={user._id} itemId={item._id} setItems={setItems}/>
                 </div>
             ))}
