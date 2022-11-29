@@ -19,6 +19,7 @@ import BorrowItem from './pages/BorrowItem';
 import Address from './pages/Address';
 import EditAddressForm from './pages/EditAddressForm';
 import EditItemForm from './pages/EditItemForm';
+import MessageDetail from "./pages/MessageDetail";
 
 
 
@@ -41,6 +42,14 @@ function App() {
   <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
   <Route path='/borrow/:itemId' element={<IsPrivate><BorrowItem/></IsPrivate>}/>
   <Route path='/messages' element={<IsPrivate><Messages/></IsPrivate>}/>
+  <Route
+          path="/messages/details/:id"
+          element={
+            <IsPrivate>
+              <MessageDetail />
+            </IsPrivate>
+          }
+        />
   <Route path='/about' element={<About/>}/>
   <Route path='/help' element={<Help/>}/>
 </Routes>
