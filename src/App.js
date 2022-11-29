@@ -20,6 +20,7 @@ import Address from './pages/Address';
 import EditAddressForm from './pages/EditAddressForm';
 import EditItemForm from './pages/EditItemForm';
 import MessageDetail from "./pages/MessageDetail";
+import BorrowedItems from "./pages/BorrowedItems";
 
 
 
@@ -34,6 +35,7 @@ function App() {
   <Route path='/home' element={<IsPrivate><Home/></IsPrivate>}/>
   <Route path='/profile/:userId' element={<IsPrivate><Profile/></IsPrivate>}/>
   <Route path='/profile/lentItems/:userId' element={<IsPrivate><LentItems/></IsPrivate>}/>
+  <Route path='/profile/borrowedItems/:userId' element={<IsPrivate><BorrowedItems/></IsPrivate>} />
   <Route path='/profile/:userId/edit' element={<IsPrivate><Edit/></IsPrivate>}/>
   <Route path="/profile/:userId/address" element={<IsPrivate><Address/></IsPrivate>}/>
   <Route path="/profile/:userId/address/:addressId/edit" element={<IsPrivate><EditAddressForm/></IsPrivate>}/>
