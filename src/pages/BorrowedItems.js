@@ -12,11 +12,11 @@ function BorrowedItems () {
     useEffect(() => {
         const fetchItems = async () => {
             let response = await axios.get(`${API_URL}/item/${user._id}/borrowed`)
-            setItems(response.data.foundedItems)
+            setItems(response.data.findItems)
         }
         fetchItems();
     }, []);
-    
+
     return items? (
         <div>
           <h1>These items are currently borrowed:</h1>
@@ -26,7 +26,6 @@ function BorrowedItems () {
                 <p>Image: <img src={item.image} alt="item-pic"/></p>
                 <p>Description: {item.description}</p>
                 <p>Availability: {item.availability}</p>
-                <p>Lender: {item.creator.username}</p>
                 </div>
             ))}
             <Link className="Link" to="/borrow">Borrow Another Item</Link>
