@@ -44,9 +44,6 @@ function Messages() {
           </div>
         ))}
       </div>
-      <div>
-        <p>Message</p>
-      </div>
     </div>
   ) : (
     <div>is Loading</div>
