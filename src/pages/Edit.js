@@ -7,7 +7,6 @@ const API_URL = "http://localhost:5005";
 
 function Edit (props) {
     const {user} = useContext(AuthContext)
-    const [username, setUsername] = useState();
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
@@ -17,8 +16,7 @@ function Edit (props) {
     useEffect(() => {
         const fetchUser = async () => {
             let response = await axios.get(`${API_URL}/profile/${user._id}`)
-            let userObj = response.data.user 
-            setUsername(userObj.username)   
+            let userObj = response.data.user   
             setFirstName(userObj.firstName)     
             setLastName(userObj.lastName)
             setEmail(userObj.email)
@@ -31,7 +29,6 @@ function Edit (props) {
    
     const navigate = useNavigate();
 
-    const handleUsername = (e) => setUsername(e.target.value);
     const handleFirstName = (e) => setFirstName(e.target.value);
     const handleLastName = (e) => setLastName(e.target.value);
     const handleEmail = (e) => setEmail(e.target.value);
@@ -41,7 +38,7 @@ function Edit (props) {
     const handleCreateSubmit = (e) => {
         e.preventDefault();
         
-        const requestBody = { username, firstName, lastName, email, aboutMe};
+        const requestBody = { firstName, lastName, email, aboutMe};
 
         axios.put(`${API_URL}/profile/${user._id}`, requestBody)
           .then((response) => {
@@ -72,14 +69,6 @@ function Edit (props) {
             </form>  
             <h2>User Details</h2>
             <form onSubmit={handleCreateSubmit}>
-        <label>Username: </label>
-          <input 
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleUsername}
-          />
-   
           <label>First Name:</label>
           <input 
             type="text"
