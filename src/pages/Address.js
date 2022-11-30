@@ -32,7 +32,7 @@ function Address () {
     const handleStreet = (e) => setStreet(e.target.value);
     const handlePostalCode = (e) => setPostalCode(e.target.value);
     const handleCity = (e) => setCity(e.target.value);
-    const [errorMessage, setErrorMessage] = useState(undefined);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const handleCreateSubmit = (e) => {
         e.preventDefault();

@@ -25,7 +25,7 @@ function Borrow () {
             {items.map(item => (
                 <div key={item._id} className="itemsToBorrow">
                 <p>Item name: {item.itemName}</p>
-                <p>Image: <img src={item.image} alt="item-pic"/></p>
+                <img src={item.image} alt="item-pic"/>
                 <p>Description: {item.description}</p>
                 <p>Availability: {item.availability}</p>
                 <p>Creator: {item.creator.username}</p>

@@ -25,7 +25,6 @@ useEffect(() => {
             <h1>Hi there {profile.username}</h1> 
             <Link to={`/profile/${user._id}/edit`}>Update Profile<img className="Icon" src="https://res.cloudinary.com/dv6mgmdzd/image/upload/v1669731236/Project%203%20-%20Neighbourly/pen_si0ity.png" alt="pen"/></Link> 
             <img className="Image" src={profile.userImage}/>
-            <h2>Rating ⭐ {profile.rating}</h2>
             <h2>About Me</h2>
             <h3>{profile.firstName} {profile.lastName}</h3>
             <p>{profile.aboutMe}</p>

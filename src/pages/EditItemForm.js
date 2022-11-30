@@ -8,7 +8,6 @@ function EditItemForm () {
 const {itemId, userId} = useParams()
 
 const [itemName, setItemName] = useState("");
-const [image, setImage] = useState("");
 const [description, setDescription] = useState("");
 const [availability, setAvailability] = useState("");
 
@@ -16,10 +15,9 @@ const [availability, setAvailability] = useState("");
         const fetchAddress = async () => {
             let response = await axios.get(`${API_URL}/item/borrow/${itemId}`)
            const itemObj = response.data.item;
-          setItemName(itemObj.itemName)   
-            setImage()     
-            setDescription(itemObj.description)
-            setAvailability(itemObj.availability)
+          setItemName(itemObj.itemName)      
+          setDescription(itemObj.description)
+          setAvailability(itemObj.availability)
         }
         fetchAddress();
     }, [] ) 
@@ -27,7 +25,6 @@ const [availability, setAvailability] = useState("");
    const navigate = useNavigate();
 
     const handleItemName = (e) => setItemName(e.target.value);
-    const handleImage = (e) => setImage(e.target.value);
     const handleDescription = (e) => setDescription(e.target.value);
     const handleAvailability = (e) => setAvailability(e.target.value);
     const [errorMessage, setErrorMessage] = useState(undefined);
@@ -35,7 +32,7 @@ const [availability, setAvailability] = useState("");
     const handleCreateSubmit = (e) => {
         e.preventDefault();
         
-        const requestBody = { itemName, image, description, availability};
+        const requestBody = { itemName, description, availability};
 
         axios.put(`${API_URL}/item/${itemId}/edit`, requestBody)
           .then(() => {
@@ -58,14 +55,6 @@ const [availability, setAvailability] = useState("");
             name="itemName"
             value={itemName}
             onChange={handleItemName}
-          />
-
-          <label>Select an image:</label>
-          <input 
-            type="file"
-            name="image"
-            value={image}
-            onChange={handleImage}
           />
    
           <label>Description:</label>

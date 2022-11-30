@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import DeleteItem from "../components/DeleteItem";
 import EditItem from "../components/EditItem";
+import EditItemImage from "../components/EditItemImage";
 
 const API_URL = "http://localhost:5005"
 
@@ -25,10 +26,11 @@ function LentItems () {
             {items.map(item => (
                 <div key={item._id}>
                 <p>Item name: {item.itemName}</p>
-                <p>Image: <img src={item.image} alt="item-pic"/></p>
+                <img src={item.image} alt="item-pic"/>
                 <p>Description: {item.description}</p>
                 <p>Availability: {item.availability}</p>
                 <EditItem userId={user._id} itemId={item._id}/>
+                <EditItemImage itemId={item._id}/>
                 <DeleteItem userId={user._id} itemId={item._id} setItems={setItems}/>
                 </div>
             ))}

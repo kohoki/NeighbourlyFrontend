@@ -21,6 +21,7 @@ import EditAddressForm from './pages/EditAddressForm';
 import EditItemForm from './pages/EditItemForm';
 import MessageDetail from "./pages/MessageDetail";
 import BorrowedItems from "./pages/BorrowedItems";
+import LendImage from './pages/LendImage';
 
 
 
@@ -41,6 +42,7 @@ function App() {
   <Route path="/profile/:userId/address/:addressId/edit" element={<IsPrivate><EditAddressForm/></IsPrivate>}/>
   <Route path="/profile/:userId/item/:itemId/edit" element={<IsPrivate><EditItemForm/></IsPrivate>}/>
   <Route path='/lend' element={<IsPrivate><Lend/></IsPrivate>}/>
+  <Route path='/lend/:itemId/image' element={<IsPrivate><LendImage/></IsPrivate>}/>
   <Route path='/borrow' element={<IsPrivate><Borrow/></IsPrivate>}/>
   <Route path='/borrow/:itemId' element={<IsPrivate><BorrowItem/></IsPrivate>}/>
   <Route path='/messages' element={<IsPrivate><Messages/></IsPrivate>}/>

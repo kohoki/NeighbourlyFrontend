@@ -18,23 +18,11 @@ function Lend (props) {
     const [errorMessage, setErrorMessage] = useState(null);
 
     const handleCreateSubmit = async (event) => {
-        event.preventDefault();
-      const image = event.target.imageUrl.files[0];
-      console.log("HI", image)
-      const formData = new FormData();
-      formData.append("imageUrl", image);
-      formData.append("itemName", itemName);
-      formData.append("description", description);
-      formData.append("availability", availability);
-      formData.append("creator", user._id);
-      console.log("form data is ", formData, itemName, description, availability, user)
-      const response = await fetch(`${API_URL}/item/test`, {
-        method: "POST",
-        body: formData
-      })
-      const parsed = await response.json()
-      console.log("yo", parsed)
-      navigate(`/profile/lentItems/${user._id}`);
+    event.preventDefault();
+    const requestBody = {itemName, description, availability, creator:user._id}
+    let response = await axios.post(`${API_URL}/item/${user._id}/create`, requestBody)
+    let itemId = response.data.item._id
+   navigate(`/lend/${itemId}/image`);
     };
 
     return (
@@ -50,13 +38,6 @@ function Lend (props) {
             value={itemName}
             onChange={handleItemName}
           />
-
-          <label>Item image:</label>
-          <input 
-            type="file" 
-            name="imageUrl" 
-            accept="image/png, image/jpg"
-            />
    
           <label>Description:</label>
           <input 

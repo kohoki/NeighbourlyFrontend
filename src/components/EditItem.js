@@ -10,7 +10,7 @@ navigate(`/profile/${userId}/item/${itemId}/edit`)
 
 return (
 <>
-<button type="submit" onClick={handleEdit}>Edit Item</button>
+<button type="submit" onClick={handleEdit}>Edit Item Details</button>
 </>
     )
 }
