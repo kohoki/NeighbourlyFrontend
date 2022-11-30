@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 
 const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
-function BorrowItem(props) {
+function BorrowItem() {
   const [lender, setLender] = useState();
   const [item, setItem] = useState();
   const [message, setMessage] = useState();
@@ -37,10 +37,7 @@ function BorrowItem(props) {
       };
       console.log(requestBody);
 
-      const postMessage = await axios.post(
-        `${API_URL}/messages/create`,
-        requestBody
-      );
+      await axios.post(`${API_URL}/messages/create`, requestBody);
       navigate(`/profile/${user._id}`);
     } catch (error) {
       const errorDescription = error.response.data.message;

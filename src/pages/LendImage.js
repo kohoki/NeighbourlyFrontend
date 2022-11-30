@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
@@ -14,10 +14,7 @@ function LendImage() {
     const image = event.target.imageUrl.files[0];
     const formData = new FormData();
     formData.append("imageUrl", image);
-    let response = await axios.post(
-      `${API_URL}/api/${itemId}/upload/item`,
-      formData
-    );
+    await axios.post(`${API_URL}/api/${itemId}/upload/item`, formData);
     navigate(`/profile/lentItems/${user._id}`);
   };
 

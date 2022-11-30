@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import { Link } from "react-router-dom";
 import EditAddress from "../components/EditAddress";
 import DeleteAddress from "../components/DeleteAddress";
 

@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
-function Signup(props) {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -26,7 +26,7 @@ function Signup(props) {
     // If the request resolves with an error, set the error message in the state
     axios
       .post(`${API_URL}/signup`, requestBody)
-      .then((response) => {
+      .then(() => {
         navigate("/login");
       })
       .catch((error) => {
