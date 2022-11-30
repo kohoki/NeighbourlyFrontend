@@ -7,7 +7,7 @@ import EditItem from "../components/EditItem";
 import EditItemImage from "../components/EditItemImage";
 import ChangeItemStatus from "../components/ChangeItemStatus";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
 function LentItems() {
   const { user } = useContext(AuthContext);
@@ -27,7 +27,7 @@ function LentItems() {
       {items.map((item) => (
         <div key={item._id}>
           <p>Item name: {item.itemName}</p>
-        <img src={item.image} alt="item-pic" />
+          <img src={item.image} alt="item-pic" />
           <p>Description: {item.description}</p>
           <p>Availability: {item.availability}</p>
           <p>
@@ -44,9 +44,9 @@ function LentItems() {
               }
             })()}
           </p>
-                <EditItem userId={user._id} itemId={item._id}/>
-                <EditItemImage itemId={item._id}/>
-                <DeleteItem userId={user._id} itemId={item._id} setItems={setItems}/>
+          <EditItem userId={user._id} itemId={item._id} />
+          <EditItemImage itemId={item._id} />
+          <DeleteItem userId={user._id} itemId={item._id} setItems={setItems} />
         </div>
       ))}
       <Link className="Link" to="/lend">
