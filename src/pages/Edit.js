@@ -11,7 +11,6 @@ function Edit (props) {
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
-    const [image, setImage] = useState();
     const [password, setPassword] = useState();
     const [aboutMe, setAboutMe] = useState();
 
@@ -23,7 +22,6 @@ function Edit (props) {
             setFirstName(userObj.firstName)     
             setLastName(userObj.lastName)
             setEmail(userObj.email)
-            setImage()
             setPassword(userObj.password)
             setAboutMe(userObj.aboutMe)
 
@@ -37,14 +35,13 @@ function Edit (props) {
     const handleFirstName = (e) => setFirstName(e.target.value);
     const handleLastName = (e) => setLastName(e.target.value);
     const handleEmail = (e) => setEmail(e.target.value);
-    const handleImage = (e) => setImage(e.target.value);
     const handleAboutMe = (e) => setAboutMe(e.target.value);
     const [errorMessage, setErrorMessage] = useState(undefined);
 
     const handleCreateSubmit = (e) => {
         e.preventDefault();
         
-        const requestBody = { username, firstName, lastName, email, userImage: image, aboutMe};
+        const requestBody = { username, firstName, lastName, email, aboutMe};
 
         axios.put(`${API_URL}/profile/${user._id}`, requestBody)
           .then((response) => {
@@ -62,7 +59,7 @@ function Edit (props) {
       const formData = new FormData();
       formData.append("imageUrl", image);
       await axios.post(`${API_URL}/api/${user._id}/upload`, formData)
-      await navigate(`/profile/${user._id}`)
+     navigate(`/profile/${user._id}`)
     }
 
     return (
@@ -97,14 +94,6 @@ function Edit (props) {
             name="lastname"
             value={lastName}
             onChange={handleLastName}
-          />
-
-          <label>Update your Profile Image: </label>
-          <input 
-            type="file"
-            name="image"
-            value={image}
-            onChange={handleImage}
           />
 
         <label>Email:</label>
