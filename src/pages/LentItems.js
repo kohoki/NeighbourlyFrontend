@@ -4,40 +4,60 @@ import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import DeleteItem from "../components/DeleteItem";
 import EditItem from "../components/EditItem";
+import ChangeItemStatus from "../components/ChangeItemStatus";
 
-const API_URL = "http://localhost:5005"
+const API_URL = "http://localhost:5005";
 
-function LentItems () {
-    const { user } = useContext(AuthContext);
-    const [items, setItems] = useState();
+function LentItems() {
+  const { user } = useContext(AuthContext);
+  const [items, setItems] = useState();
 
-    useEffect(() => {
-        const fetchItems = async () => {
-            let response = await axios.get(`${API_URL}/item/${user._id}`)
-            setItems(response.data.foundedItems)
-        }
-        fetchItems();
-    }, []);
+  useEffect(() => {
+    const fetchItems = async () => {
+      let response = await axios.get(`${API_URL}/item/${user._id}`);
+      setItems(response.data.foundedItems);
+    };
+    fetchItems();
+  }, []);
 
-    return items? (
-        <div>
-            <h1>Your Loaned Items: </h1>
-            {items.map(item => (
-                <div key={item._id}>
-                <p>Item name: {item.itemName}</p>
-                <p>Image: <img src={item.image} alt="item-pic"/></p>
-                <p>Description: {item.description}</p>
-                <p>Availability: {item.availability}</p>
-                <EditItem userId={user._id} itemId={item._id}/>
-                <DeleteItem userId={user._id} itemId={item._id} setItems={setItems}/>
-                </div>
-            ))}
-            <Link className="Link" to="/lend">Loan Another Item</Link>
+  return items ? (
+    <div>
+      <h1>Your Loaned Items: </h1>
+      {items.map((item) => (
+        <div key={item._id}>
+          {console.log("AA:", item.borrower[0])}
+          <p>Item name: {item.itemName}</p>
+          <p>
+            Image: <img src={item.image} alt="item-pic" />
+          </p>
+          <p>Description: {item.description}</p>
+          <p>Availability: {item.availability}</p>
+
+          <p>
+            Item is borrowed:{" "}
+            {item.borrowed ? <span>yes</span> : <span>no</span>}
+            {(() => {
+              if (item.borrowed) {
+                return (
+                  <ChangeItemStatus
+                    itemId={item._id}
+                    borrower={item.borrower[0]}
+                  />
+                );
+              }
+            })()}
+          </p>
+          <EditItem userId={user._id} itemId={item._id} />
+          <DeleteItem userId={user._id} itemId={item._id} setItems={setItems} />
         </div>
-    ) 
-    : (
-        <h1>Loading...</h1>
-    )
+      ))}
+      <Link className="Link" to="/lend">
+        Loan Another Item
+      </Link>
+    </div>
+  ) : (
+    <h1>Loading...</h1>
+  );
 }
 
 export default LentItems;
