@@ -50,6 +50,7 @@ useEffect(() => {
             <div>
                 <h2>Items Borrowed</h2>
                 <Link className="Link" to="/borrow">Look for Something to Borrow</Link>
+                <Link className="Link" to={`/profile/borrowedItems/${user._id}`}>All Currently Borrowed Items</Link>
             </div>
             <div>
                 <h2>Items Loaned</h2>

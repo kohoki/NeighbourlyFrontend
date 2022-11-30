@@ -12,6 +12,13 @@ function MessageDetail() {
   const [messages, setMessages] = useState();
   const [message, setMessage] = useState();
   const [newMessage, setNewMessage] = useState("");
+  const [borrowMessage, setBorrowMessage] = useState(
+    "You can borrow the item !! ;-)"
+  );
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -27,7 +34,7 @@ function MessageDetail() {
       messages.map((element) => {
         if (element._id === id) {
           setMessage(element);
-          // console.log("BB:", message);
+          console.log("BB:", message);
         }
       });
     }
@@ -44,12 +51,28 @@ function MessageDetail() {
     }
   };
 
+  const handleYouCan = async (event) => {
+    try {
+      event.preventDefault();
+      const newSend = { message: borrowMessage, userId: user._id };
+      await axios.post(`${API_URL}/messages/${id}/update`, newSend);
+      const bodyForItem = { id: message.borrower._id };
+      await axios.put(
+        `${API_URL}/item/${message.item._id}/status`,
+        bodyForItem
+      );
+      refreshPage();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return message ? (
     <div>
       MessageDetail:
       {message.communication.map((element) => {
         return (
-          <p>
+          <p key={element._id}>
             {element.userId.username}: {element.message}
           </p>
         );
@@ -66,6 +89,19 @@ function MessageDetail() {
 
         <button type="submit">send</button>
       </form>
+      {/* {console.log("AA:", user.username)} */}
+      {(() => {
+        if (
+          (user.username === message.lender.username) &
+          !message.item.borrowed
+        ) {
+          return (
+            <form onSubmit={handleYouCan}>
+              <button type="submit">you can borrow it</button>
+            </form>
+          );
+        }
+      })()}
     </div>
   ) : (
     <div>is Loading</div>
