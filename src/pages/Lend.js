@@ -7,7 +7,6 @@ const API_URL = "http://localhost:5005";
 
 function Lend (props) {
     const [itemName, setItemName] = useState("");
-    const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [availability, setAvailability] = useState("");
     const {user} = useContext(AuthContext)
@@ -16,7 +15,7 @@ function Lend (props) {
     const handleItemName = (e) => setItemName(e.target.value);
     const handleDescription = (e) => setDescription(e.target.value);
     const handleAvailability = (e) => setAvailability(e.target.value);
-    const [errorMessage, setErrorMessage] = useState(undefined);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const handleCreateSubmit = async (event) => {
         event.preventDefault();
@@ -27,9 +26,14 @@ function Lend (props) {
       formData.append("itemName", itemName);
       formData.append("description", description);
       formData.append("availability", availability);
-      formData.append("creator", user);
-      const response = await axios.post(`${API_URL}/item/${user._id}`, formData)
-      console.log("Hello", response)
+      formData.append("creator", user._id);
+      console.log("form data is ", formData, itemName, description, availability, user)
+      const response = await fetch(`${API_URL}/item/test`, {
+        method: "POST",
+        body: formData
+      })
+      const parsed = await response.json()
+      console.log("yo", parsed)
       navigate(`/profile/lentItems/${user._id}`);
     };
 
@@ -37,7 +41,8 @@ function Lend (props) {
         <div className="LendPage">
             <h1>Sharing is caring. What would you like to lend?</h1>
             <h2>Add your item's details</h2>
-        <form onSubmit={handleCreateSubmit} encType="multipart/form-data">
+
+        <form onSubmit={handleCreateSubmit}>
         <label>Item name:</label>
           <input 
             type="text"
