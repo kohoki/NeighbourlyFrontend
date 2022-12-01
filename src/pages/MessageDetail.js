@@ -66,12 +66,9 @@ function MessageDetail() {
   };
 
   return message ? (
-    <div
-      className="backgroundColor"
-      style={{ display: "flex", flexDirection: "column " }}
-    >
+    <div className="backgroundColor2">
       <div>
-        <h1 style={{ margin: "20px" }} className="textColor">
+        <h1 style={{ padding: "10px" }} className="textColor">
           Message Detail:{" "}
         </h1>
       </div>
@@ -88,8 +85,13 @@ function MessageDetail() {
           return (
             <div style={{ margin: "10px" }} key={element._id} class="card w-25">
               <div className="card-body">
-                <h5 className="card-title">{element.userId.username} wrote</h5>
-                <p className="card-text">{element.message}</p>
+                <h5 className="card-title">{element.userId.username} wrote:</h5>
+                <p
+                  style={{ color: "black", textAlign: "left" }}
+                  className="card-text"
+                >
+                  {element.message}
+                </p>
               </div>
             </div>
           );
@@ -97,6 +99,7 @@ function MessageDetail() {
         <form onSubmit={handleSubmit}>
           <div style={{ margin: "10px", width: "30rem" }}>
             <textarea
+              style={{ marginTop: "30px" }}
               className="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
@@ -119,9 +122,11 @@ function MessageDetail() {
             !message.item.borrowed
           ) {
             return (
-              <div>
+              <div style={{ margin: "10px" }}>
                 <form onSubmit={handleYouCan}>
-                  <button type="submit">you can borrow it</button>
+                  <button className="btn btn-warning" type="submit">
+                    you can borrow it
+                  </button>
                 </form>
               </div>
             );
@@ -131,8 +136,8 @@ function MessageDetail() {
     </div>
   ) : (
     <div class="spinner-border text-light" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
   );
 }
 

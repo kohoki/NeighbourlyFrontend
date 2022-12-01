@@ -20,7 +20,7 @@ function Messages() {
   console.log(messages);
   return messages ? (
     <div
-      className="backgroundColor"
+      className="backgroundColor2"
       style={{ display: "flex", flexDirection: "column " }}
     >
       <div>
@@ -58,10 +58,16 @@ function Messages() {
                         {message.item.itemName}
                       </h5>
 
-                      <p class="card-title">
+                      <p
+                        style={{ color: "black", textAlign: "left" }}
+                        class="card-title"
+                      >
                         Lender of item: {message.lender.username}
                       </p>
-                      <p class="card-title">
+                      <p
+                        style={{ color: "black", textAlign: "left" }}
+                        class="card-title"
+                      >
                         person might borrow some: {message.borrower.username}
                       </p>
                     </div>
@@ -75,8 +81,8 @@ function Messages() {
     </div>
   ) : (
     <div class="spinner-border text-light" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
   );
 }
 

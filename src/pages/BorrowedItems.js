@@ -50,8 +50,12 @@ function BorrowedItems() {
             <img src={item.image} alt="item-pic" className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title">{item.itemName}</h5>
-              <p className="card-text">{item.description}</p>
-              <p className="card-text">Availability: {item.availability}</p>
+              <p style={{ color: "black" }} className="card-text">
+                {item.description}
+              </p>
+              <p style={{ color: "black" }} className="card-text">
+                Availability: {item.availability}
+              </p>
             </div>
           </div>
         ))}

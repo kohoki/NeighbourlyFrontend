@@ -54,9 +54,9 @@ function Navbar() {
 
       {isLoggedIn && (
         <div>
-          <div className="container-fluid">
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
+          <div className="container-fluid ">
+            <div className="collapse navbar-collapse " id="navbarNav">
+              <ul className="navbar-nav ">
                 <li className="nav-item">
                   <Link className="nav-link active me-5" to="/home">
                     <img

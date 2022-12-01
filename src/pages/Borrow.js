@@ -21,8 +21,16 @@ function Borrow() {
 
   return items ? (
     <div
-      className="backgroundColor"
-      style={{ display: "flex", flexDirection: "column " }}
+      style={{
+        backgroundColor: "#172153",
+        width: "null",
+        height: "null",
+        padding: "50px",
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
     >
       <div>
         <h1 style={{ margin: "10px" }} className="textColor">
@@ -47,9 +55,15 @@ function Borrow() {
             <img src={item.image} alt="item-pic" className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title">{item.itemName}</h5>
-              <p className="card-text">{item.description}</p>
-              <p className="card-text">Availability: {item.availability}</p>
-              <p className="card-text">Creator: {item.creator.username}</p>
+              <p style={{ color: "black" }} className="card-text">
+                {item.description}
+              </p>
+              <p style={{ color: "black" }} className="card-text">
+                Availability: {item.availability}
+              </p>
+              <p style={{ color: "black" }} className="card-text">
+                Creator: {item.creator.username}
+              </p>
               <Link className="btn btn-secondary" to={`/borrow/${item._id}`}>
                 Contact Lender
               </Link>

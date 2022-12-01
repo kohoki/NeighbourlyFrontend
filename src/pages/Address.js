@@ -125,8 +125,8 @@ function Address() {
     </div>
   ) : (
     <div class="spinner-border text-light" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
   );
 }
 
