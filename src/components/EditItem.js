@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-// const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
-
 function EditItem({ itemId, userId }) {
   const navigate = useNavigate();
   const handleEdit = () => {

@@ -59,8 +59,8 @@ function Borrow() {
       </div>
     </div>
   ) : (
-    <div className="container backgroundColor">
-      <h1>Loading...</h1>
+    <div class="spinner-border text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
   );
 }
