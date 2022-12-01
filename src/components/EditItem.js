@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function EditItem({ itemId, userId }) {
   const navigate = useNavigate();

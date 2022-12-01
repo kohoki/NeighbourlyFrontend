@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 import EditAddress from "../components/EditAddress";
 import DeleteAddress from "../components/DeleteAddress";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function Address() {
   const { user } = useContext(AuthContext);
@@ -62,42 +62,58 @@ function Address() {
   };
 
   return addresses ? (
-    <div>
+    <div className="backgroundColor textColor profile-edit">
       <h1>Address Info</h1>
       <h2>Add an Address</h2>
-      <form onSubmit={handleCreateSubmit}>
-        <label>Address Title: </label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-
-        <label>Street Number: </label>
-        <input
-          type="text"
-          name="number"
-          value={number}
-          onChange={handleNumber}
-        />
-
-        <label>Street Name: </label>
-        <input
-          type="text"
-          name="street"
-          value={street}
-          onChange={handleStreet}
-        />
-
-        <label>Post Code: </label>
-        <input
-          type="text"
-          name="postcode"
-          value={postalCode}
-          onChange={handlePostalCode}
-        />
-
-        <label>City: </label>
-        <input type="text" name="city" value={city} onChange={handleCity} />
-
-        <button type="submit">Add</button>
-      </form>
+      <div className="address-form">
+        <form onSubmit={handleCreateSubmit}>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Address Title: </label>
+            <input type="text" name="name" value={name} onChange={handleName} className="form-control" 
+            id="exampleFormControlInput1" />
+          </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Street Number: </label>
+            <input
+              type="text"
+              name="number"
+              value={number}
+              onChange={handleNumber}
+              className="form-control" 
+              id="exampleFormControlInput1"
+            />
+          </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Street Name: </label>
+            <input
+              type="text"
+              name="street"
+              value={street}
+              onChange={handleStreet}
+              className="form-control" 
+              id="exampleFormControlInput1"
+            />
+          </div>  
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Post Code: </label>
+            <input
+              type="text"
+              name="postcode"
+              value={postalCode}
+              onChange={handlePostalCode}
+              className="form-control" 
+              id="exampleFormControlInput1"
+            />
+          </div>  
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">City: </label>
+            <input type="text" name="city" value={city} onChange={handleCity} className="form-control" 
+              id="exampleFormControlInput1" />
+          </div>  
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div>
