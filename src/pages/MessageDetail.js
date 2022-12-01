@@ -68,40 +68,68 @@ function MessageDetail() {
   };
 
   return message ? (
-    <div>
-      MessageDetail:
-      {message.communication.map((element) => {
-        return (
-          <p key={element._id}>
-            {element.userId.username}: {element.message}
-          </p>
-        );
-      })}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <textarea
-            type="text"
-            placeholder="Your message"
-            value={newMessage}
-            onChange={(event) => setNewMessage(event.target.value)}
-          />
-        </div>
-
-        <button type="submit">send</button>
-      </form>
-      {/* {console.log("AA:", user.username)} */}
-      {(() => {
-        if (
-          (user.username === message.lender.username) &
-          !message.item.borrowed
-        ) {
+    <div
+      className="backgroundColor"
+      style={{ display: "flex", flexDirection: "column " }}
+    >
+      <div>
+        <h1 style={{ margin: "20px" }} className="textColor">
+          Message Detail:{" "}
+        </h1>
+      </div>
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          margin: "0px",
+          flexDirection: "column ",
+          justifyContent: "space-around",
+        }}
+      >
+        {message.communication.map((element) => {
           return (
-            <form onSubmit={handleYouCan}>
-              <button type="submit">you can borrow it</button>
-            </form>
+            <div style={{ margin: "10px" }} key={element._id} class="card w-25">
+              <div className="card-body">
+                <h5 className="card-title">{element.userId.username} wrote</h5>
+                <p className="card-text">{element.message}</p>
+              </div>
+            </div>
           );
-        }
-      })()}
+        })}
+        <form onSubmit={handleSubmit}>
+          <div style={{ margin: "10px", width: "30rem" }}>
+            <textarea
+              className="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              type="text"
+              placeholder="Your message"
+              value={newMessage}
+              onChange={(event) => setNewMessage(event.target.value)}
+            />
+          </div>
+          <div style={{ margin: "10px" }}>
+            <button className="btn btn-light" type="submit">
+              send
+            </button>
+          </div>
+        </form>
+        {/* {console.log("AA:", user.username)} */}
+        {(() => {
+          if (
+            (user.username === message.lender.username) &
+            !message.item.borrowed
+          ) {
+            return (
+              <div>
+                <form onSubmit={handleYouCan}>
+                  <button type="submit">you can borrow it</button>
+                </form>
+              </div>
+            );
+          }
+        })()}
+      </div>
     </div>
   ) : (
     <div>is Loading</div>

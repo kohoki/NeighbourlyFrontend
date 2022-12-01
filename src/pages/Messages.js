@@ -24,7 +24,7 @@ function Messages() {
       style={{ display: "flex", flexDirection: "column " }}
     >
       <div>
-        <h1 style={{ margin: "10px" }} className="textColor">
+        <h1 style={{ margin: "20px" }} className="textColor">
           Your Messages{" "}
         </h1>
       </div>
