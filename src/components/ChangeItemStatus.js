@@ -19,11 +19,15 @@ function ChangeItemStatus({ itemId, borrower }) {
   };
 
   return (
-    <>
-      <button className="Button" type="button" onClick={availableAgain}>
+    <div style={{ marginBottom: "10px" }}>
+      <button
+        className="btn btn-secondary"
+        type="button"
+        onClick={availableAgain}
+      >
         Item is available again.
       </button>
-    </>
+    </div>
   );
 }
 

@@ -11,11 +11,15 @@ function DeleteItem({ itemId, setItems, userId }) {
   };
 
   return (
-    <>
-      <button className="Button" type="button" onClick={handleDelete}>
+    <div style={{ marginBottom: "10px" }}>
+      <button
+        className="btn btn-secondary"
+        type="button"
+        onClick={handleDelete}
+      >
         Remove Item
       </button>
-    </>
+    </div>
   );
 }
 

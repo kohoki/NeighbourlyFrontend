@@ -20,21 +20,48 @@ function Borrow() {
   console.log(items);
 
   return items ? (
-    <div>
-      <h1>What are you looking for? </h1>
-      {items.map((item) => (
-        <div key={item._id} className="itemsToBorrow">
-          <p>Item name: {item.itemName}</p>
-          <img src={item.image} alt="item-pic" />
-          <p>Description: {item.description}</p>
-          <p>Availability: {item.availability}</p>
-          <p>Creator: {item.creator.username}</p>
-          <Link to={`/borrow/${item._id}`}>Contact Lender</Link>
-        </div>
-      ))}
+    <div
+      className="backgroundColor"
+      style={{ display: "flex", flexDirection: "column " }}
+    >
+      <div>
+        <h1 style={{ margin: "10px" }} className="textColor">
+          What are you looking for?{" "}
+        </h1>
+      </div>
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          margin: "0px",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}
+      >
+        {items.map((item) => (
+          <div
+            key={item._id}
+            className="card"
+            style={{ width: "22rem", marginTop: "50px" }}
+          >
+            <img src={item.image} alt="item-pic" className="card-img-top" />
+            <div className="card-body">
+              <h5 className="card-title">{item.itemName}</h5>
+              <p className="card-text">{item.description}</p>
+              <p className="card-text">Availability: {item.availability}</p>
+              <p className="card-text">Creator: {item.creator.username}</p>
+              <Link className="btn btn-secondary" to={`/borrow/${item._id}`}>
+                Contact Lender
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   ) : (
-    <h1>Loading...</h1>
+    <div className="container backgroundColor">
+      <h1>Loading...</h1>
+    </div>
   );
 }
 

@@ -19,29 +19,58 @@ function Messages() {
 
   console.log(messages);
   return messages ? (
-    <div style={{ display: "flex" }}>
+    <div
+      className="backgroundColor"
+      style={{ display: "flex", flexDirection: "column " }}
+    >
       <div>
-        {messages.map((message) => (
-          <div>
-            <ul className="ListItem">
-              {console.log(message._id)}
-              <Link to={`/messages/details/${message._id}`}>
-                <li style={{ borderStyle: "solid" }} key={message._id}>
-                  Item:{" "}
-                  <img
-                    src={message.image_url}
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  {message.item.itemName} / Lender of item:{" "}
-                  {message.lender.username}
-                  <br></br> / person might borrow some:{" "}
-                  {message.borrower.username}
-                </li>
-              </Link>
-            </ul>
-          </div>
-        ))}
+        <h1 style={{ margin: "20px" }} className="textColor">
+          Your Messages{" "}
+        </h1>
+      </div>
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          margin: "0px",
+          flexDirection: "column ",
+          justifyContent: "space-around",
+        }}
+      >
+        <div>
+          {messages.map((message) => (
+            <div>
+              <ul>
+                {/* {console.log(message._id)} */}
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to={`/messages/details/${message._id}`}
+                >
+                  <li className="card w-50" key={message._id}>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <img
+                          style={{ width: "40px" }}
+                          src={message.item.image}
+                          className="card-img-top"
+                          alt="..."
+                        />
+                        {message.item.itemName}
+                      </h5>
+
+                      <p class="card-title">
+                        Lender of item: {message.lender.username}
+                      </p>
+                      <p class="card-title">
+                        person might borrow some: {message.borrower.username}
+                      </p>
+                    </div>
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   ) : (
