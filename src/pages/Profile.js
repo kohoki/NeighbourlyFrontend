@@ -26,7 +26,7 @@ function Profile() {
       </div>
         <div className="profile">
           <div className="left-side">
-            <div className="card" style={{width: "30rem", height: "50rem"}}>
+            <div className="card" style={{width: "30rem", height: "50rem", display: "flex", flexDirection: "column", gap: "1rem"}}>
               <img className="card-img-top" src={profile.userImage} alt="profile-pic"/>
               <div className="card-body">
                 <h3 className="card-subtitle mb-2 text-muted">
@@ -48,17 +48,18 @@ function Profile() {
           <div className="right-side" style={{height: "50rem"}}>  
              <div className="card" style={{width: "30rem", height: "20rem"}}>
               <div className="card-body">
-                <h2 className="card-title">Addresses</h2>
+              <div className="address-main">
+                <h2 className="card-title" style={{color: "black"}}>Addresses</h2>
                 {address ? (
                 <>
                 <h3 className="card-subtitle mb-2 text-muted">Main Address: </h3>
-                <ul>
-                  <li className="ListItem card-text" style={{color: "black"}}>{address.nameOfAddress}</li>
-                  <li className="ListItem card-text" style={{color: "black"}}>
+                <ul style={{padding: "0"}}>
+                  <li className="ListItem card-text" style={{color: "black", fontSize: "1.3rem"}}>{address.nameOfAddress}</li>
+                  <li className="ListItem card-text" style={{color: "black", fontSize: "1.3rem"}}>
                   {address.number} {address.street}
                   </li>
-                  <li className="ListItem card-text" style={{color: "black"}}>{address.postalCode}</li>
-                  <li className="ListItem card-text" style={{color: "black"}}>{address.city}</li>
+                  <li className="ListItem card-text" style={{color: "black", fontSize: "1.3rem"}}>{address.postalCode}</li>
+                  <li className="ListItem card-text" style={{color: "black", fontSize: "1.3rem"}}>{address.city}</li>
                 </ul>
                 </>
               ) : (
@@ -67,27 +68,32 @@ function Profile() {
 
                 <Link className="btn btn-secondary" to={`/profile/${user._id}/address`}>Update Addresses</Link>
               </div>
+              </div>
             </div>   
             <div className="card" style={{width: "30rem", height: "12rem"}}>
               <div className="card-body">
                 <h2 className="card-subtitle mb-2 text-muted">Items Borrowed</h2>
-                <Link className="btn btn-secondary" to="/borrow">
+                <div className="link-box-profile">
+                  <Link className="btn btn-secondary" to="/borrow">
                 Look for Something to Borrow
                 </Link>
                 <Link className="btn btn-secondary" to={`/profile/borrowedItems/${user._id}`}>
                 All Currently Borrowed Items
                 </Link>
+                </div>
               </div>
             </div>
-            <div className="card" style={{width: "30rem", height: "10rem"}}>
+            <div className="card" style={{width: "30rem", height: "12rem"}}>
               <div className="card-body">
                 <h2 className="card-subtitle mb-2 text-muted">Items Loaned</h2>
+                <div className="link-box-profile">
                 <Link className="btn btn-secondary" to="/lend">
                 Lend a New Item
                 </Link>
                 <Link className="btn btn-secondary" to={`/profile/lentItems/${user._id}`}>
                 All Loaned Items
                 </Link>
+                </div>
               </div>
             </div>
           </div>

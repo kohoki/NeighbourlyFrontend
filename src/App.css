@@ -36,6 +36,22 @@ body {
     padding-top: 2rem;
 }
 
+.address-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.link-box-profile {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
 .left-side {
     display: flex;
     flex-direction: column;
@@ -74,6 +90,15 @@ body {
     display: flex;
     flex-direction: column; 
     padding: 2rem;
+}
+
+.current-addresses {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .address-form > button {

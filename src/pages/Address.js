@@ -120,8 +120,8 @@ function Address() {
         <h2>Current Addresses</h2>
 
         {addresses.map((address) => (
-          <div key={address._id}>
-            <ul>
+          <div key={address._id} className="current-addresses">
+            <ul style={{padding: "0"}}>
               <li className="ListItem">{address.nameOfAddress}</li>
               <li className="ListItem">
                 {address.number} {address.street}
