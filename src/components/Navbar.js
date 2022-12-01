@@ -6,7 +6,7 @@ function Navbar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
     return (
-        <nav /*className="Navbar"*/ className="navbar navbar-expand-lg bg-light">
+        <nav /*className="Navbar"*/ className="navbar navbar-expand-lg bg-light ">
           {!isLoggedIn && (
         <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -15,7 +15,7 @@ function Navbar() {
         <Link className="nav-link active" aria-current="page"  to="/signup">Register an Account</Link> 
         </li> 
         <li className="nav-item"> 
-        <Link className="nav-link active" aria-current="page" to="/login">Log In to your Account</Link>
+        <Link className="nav-link active" aria-current="page" to="/login">Log In to Your Account</Link>
         </li> 
         <li className="nav-item"> 
         <Link className="nav-link active" aria-current="page" to="/about">About Neighbourly</Link> 
@@ -33,7 +33,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
         <li className="nav-item">
-        <Link className="nav-link active" to="/home"><img src="https://res.cloudinary.com/dv6mgmdzd/image/upload/v1669730868/Project%203%20-%20Neighbourly/logo_cuaypn.png" alt="Logo"/></Link>  
+        <Link className="nav-link active" to="/home"><img src="https://res.cloudinary.com/dv6mgmdzd/image/upload/v1669906029/Project%203%20-%20Neighbourly/logo_l9fp62.png" alt="Logo"/></Link>  
         </li> 
         <li className="nav-item">
         <Link className="nav-link active" to={`/profile/${user._id}`}>{user.username}'s Profile</Link> 
@@ -51,7 +51,7 @@ function Navbar() {
         <Link className="nav-link active" to="/about">About Neighbourly</Link> 
         </li>   
         <li className="nav-item">
-        <Link to="/help">Help</Link>    
+        <Link className="nav-link active" to="/help">Help</Link>    
         </li>
         <li className="nav-item">
         <Link className="nav-link active" onClick={logOutUser}>Logout</Link>

@@ -37,10 +37,10 @@ function Signup() {
 
   return (
     <div /*className="SignupPage"*/ className="backgroundColor">
-      <h1 className="textColor">Don't already have an account? Sign up</h1>
+      <h1 className="textColor">Don't already have an account? Sign up today</h1>
 
       <form onSubmit={handleSignupSubmit}>
-      <div className="mb-3">
+      <div className="mb-3" style={{width: "30vw"}}>
         <label className="textColor">Username:</label>
         <input
           type="text"
@@ -50,11 +50,11 @@ function Signup() {
           className="form-control"
         />
       </div>
-      <div className="mb-3">
+      <div className="mb-3" style={{width: "30vw"}}>
         <label for="exampleInputEmail1" className="form-label textColor">Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" id="exampleInputEmail1" />
       </div>
-      <div className="mb-3">
+      <div className="mb-3" style={{width: "30vw"}}>
         <label for="exampleInputPassword1" className="form-label textColor">Password:</label>
         <input
           type="password"
