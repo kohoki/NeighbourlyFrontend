@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
-function Signup(props) {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -26,7 +26,7 @@ function Signup(props) {
     // If the request resolves with an error, set the error message in the state
     axios
       .post(`${API_URL}/signup`, requestBody)
-      .then((response) => {
+      .then(() => {
         navigate("/login");
       })
       .catch((error) => {
@@ -36,36 +36,41 @@ function Signup(props) {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Don't already have an account? Sign up</h1>
+    <div /*className="SignupPage"*/ className="backgroundColor">
+      <h1 className="textColor">Don't already have an account? Sign up</h1>
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Username:</label>
+      <div className="mb-3">
+        <label className="textColor">Username:</label>
         <input
           type="text"
           name="username"
           value={username}
           onChange={handleUsername}
+          className="form-control"
         />
-
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
+      </div>
+      <div className="mb-3">
+        <label for="exampleInputEmail1" className="form-label textColor">Email:</label>
+        <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" id="exampleInputEmail1" />
+      </div>
+      <div className="mb-3">
+        <label for="exampleInputPassword1" className="form-label textColor">Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
+          className="form-control" id="exampleInputPassword1"
         />
-
-        <button type="submit">Sign Up</button>
+      </div>
+        <button type="submit" className="btn btn-light">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <p className="textColor">Already have account?</p>
+      <Link className="btn btn-light" to={"/login"}> Login</Link>
     </div>
   );
 }

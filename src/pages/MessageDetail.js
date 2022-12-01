@@ -12,9 +12,7 @@ function MessageDetail() {
   const [messages, setMessages] = useState();
   const [message, setMessage] = useState();
   const [newMessage, setNewMessage] = useState("");
-  const [borrowMessage, setBorrowMessage] = useState(
-    "You can borrow the item !! ;-)"
-  );
+  const [borrowMessage] = useState("You can borrow the item !! ;-)");
 
   function refreshPage() {
     window.location.reload(false);

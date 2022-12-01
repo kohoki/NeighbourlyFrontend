@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 
 const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
-function Lend(props) {
+function Lend() {
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
   const [availability, setAvailability] = useState("");

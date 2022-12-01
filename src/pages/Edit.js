@@ -5,12 +5,12 @@ import { AuthContext } from "../context/auth.context";
 
 const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
-function Edit(props) {
+function Edit() {
   const { user } = useContext(AuthContext);
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  // const [password, setPassword] = useState();
   const [aboutMe, setAboutMe] = useState();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function Edit(props) {
       setFirstName(userObj.firstName);
       setLastName(userObj.lastName);
       setEmail(userObj.email);
-      setPassword(userObj.password);
+      // setPassword(userObj.password);
       setAboutMe(userObj.aboutMe);
     };
     fetchUser();
@@ -41,7 +41,7 @@ function Edit(props) {
 
     axios
       .put(`${API_URL}/profile/${user._id}`, requestBody)
-      .then((response) => {
+      .then(() => {
         navigate(`/profile/${user._id}`);
       })
       .catch((error) => {
