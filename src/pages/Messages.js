@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function Messages() {
   const { user } = useContext(AuthContext);

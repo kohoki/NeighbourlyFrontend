@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -40,37 +40,54 @@ function Signup() {
       <h1 className="textColor">Don't already have an account? Sign up</h1>
 
       <form onSubmit={handleSignupSubmit}>
-      <div className="mb-3">
-        <label className="textColor">Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsername}
-          className="form-control"
-        />
-      </div>
-      <div className="mb-3">
-        <label for="exampleInputEmail1" className="form-label textColor">Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" id="exampleInputEmail1" />
-      </div>
-      <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label textColor">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-          className="form-control" id="exampleInputPassword1"
-        />
-      </div>
-        <button type="submit" className="btn btn-light">Sign Up</button>
+        <div className="mb-3">
+          <label className="textColor">Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleUsername}
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label textColor">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            className="form-control"
+            id="exampleInputEmail1"
+          />
+        </div>
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label textColor">
+            Password:
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <button type="submit" className="btn btn-light">
+          Sign Up
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p className="textColor">Already have account?</p>
-      <Link className="btn btn-light" to={"/login"}> Login</Link>
+      <Link className="btn btn-light" to={"/login"}>
+        {" "}
+        Login
+      </Link>
     </div>
   );
 }

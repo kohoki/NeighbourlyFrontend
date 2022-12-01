@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function MessageDetail() {
   const { id } = useParams();

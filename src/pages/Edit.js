@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function Edit() {
   const { user } = useContext(AuthContext);
