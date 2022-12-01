@@ -1,6 +1,32 @@
 body {
-    padding-left: 20px
+    
 }
+
+.backgroundColor {
+    background-color: #172153;
+    width: 100vw;
+    height: 100vh;
+}
+
+.textColor {
+    color: white;
+    font-weight: bold;
+}
+
+/*.btn-color {
+    background-color: #FF9666;
+    color: white;
+    border: 1px solid #FF9666;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.link-text {
+    text-decoration: inherit;
+    color: white;
+}*/
+
+
 
 .Navbar {
 display: flex;

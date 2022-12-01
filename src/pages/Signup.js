@@ -36,12 +36,12 @@ function Signup() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Don't already have an account? Sign up</h1>
+    <div /*className="SignupPage"*/ className="backgroundColor">
+      <h1 className="textColor">Don't already have an account? Sign up</h1>
 
       <form onSubmit={handleSignupSubmit}>
       <div className="mb-3">
-        <label>Username:</label>
+        <label className="textColor">Username:</label>
         <input
           type="text"
           name="username"
@@ -51,11 +51,11 @@ function Signup() {
         />
       </div>
       <div className="mb-3">
-        <label for="exampleInputEmail1" className="form-label">Email:</label>
+        <label for="exampleInputEmail1" className="form-label textColor">Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" id="exampleInputEmail1" />
       </div>
       <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label">Password:</label>
+        <label for="exampleInputPassword1" className="form-label textColor">Password:</label>
         <input
           type="password"
           name="password"
@@ -64,13 +64,13 @@ function Signup() {
           className="form-control" id="exampleInputPassword1"
         />
       </div>
-        <button type="submit" className="btn btn-primary">Sign Up</button>
+        <button type="submit" className="btn btn-light">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link className="btn btn-primary" to={"/login"}> Login</Link>
+      <p className="textColor">Already have account?</p>
+      <Link className="btn btn-light" to={"/login"}> Login</Link>
     </div>
   );
 }

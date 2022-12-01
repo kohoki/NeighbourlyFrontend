@@ -38,12 +38,12 @@ function Login() {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div /*className="LoginPage"*/ className="backgroundColor">
+      <h1 className="textColor">Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
       <div className="mb-3">
-        <label>Username:</label>
+        <label className="textColor">Username:</label>
         <input
           type="text"
           name="username"
@@ -53,7 +53,7 @@ function Login() {
         />
       </div>
       <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label">Password:</label>
+        <label for="exampleInputPassword1" className="form-label textColor">Password:</label>
         <input
           type="password"
           name="password"
@@ -62,12 +62,12 @@ function Login() {
           className="form-control" id="exampleInputPassword1"
         />
       </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-light">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link className="btn btn-primary" to={"/signup"}> Sign Up</Link>
+      <p className="textColor">Don't have an account yet?</p>
+      <Link className="btn btn-light" to={"/signup"}> Sign Up</Link>
     </div>
   );
 }

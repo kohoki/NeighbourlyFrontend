@@ -30,14 +30,34 @@ function Navbar() {
         
         {isLoggedIn && (
         <div className="container-fluid">
-        <Link to="/home"><img src="https://res.cloudinary.com/dv6mgmdzd/image/upload/v1669730868/Project%203%20-%20Neighbourly/logo_cuaypn.png" alt="Logo"/></Link>    
-        <Link to={`/profile/${user._id}`}>{user.username}'s Profile</Link> 
-        <Link to="/borrow">Borrow</Link>  
-        <Link to="/lend">Lend</Link>  
-        <Link to="/messages">Messages</Link>   
-        <Link to="/about">About Neighbourly</Link>    
+        <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+        <li className="nav-item">
+        <Link className="nav-link active" to="/home"><img src="https://res.cloudinary.com/dv6mgmdzd/image/upload/v1669730868/Project%203%20-%20Neighbourly/logo_cuaypn.png" alt="Logo"/></Link>  
+        </li> 
+        <li className="nav-item">
+        <Link className="nav-link active" to={`/profile/${user._id}`}>{user.username}'s Profile</Link> 
+        </li> 
+        <li className="nav-item">
+        <Link className="nav-link active" to="/borrow">Borrow</Link> 
+        </li>
+        <li className="nav-item">
+        <Link className="nav-link active" to="/lend">Lend</Link>  
+        </li>
+        <li className="nav-item">
+        <Link className="nav-link active" to="/messages">Messages</Link>   
+        </li>
+        <li className="nav-item">
+        <Link className="nav-link active" to="/about">About Neighbourly</Link> 
+        </li>   
+        <li className="nav-item">
         <Link to="/help">Help</Link>    
-        <Link onClick={logOutUser}>Logout</Link>
+        </li>
+        <li className="nav-item">
+        <Link className="nav-link active" onClick={logOutUser}>Logout</Link>
+        </li>
+        </ul>
+        </div>
         </div>
         )}   
         </nav>
