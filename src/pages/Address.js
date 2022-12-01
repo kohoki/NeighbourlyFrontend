@@ -63,10 +63,10 @@ function Address() {
 
   return addresses ? (
     <div className="backgroundColor textColor profile-edit">
-      <h1>Address Info</h1>
-      <h2>Add an Address</h2>
-      <div className="address-form">
-        <form onSubmit={handleCreateSubmit}>
+      <h1>Manage Your Addresses</h1>
+      <div className="address-box">
+       <div style={{width: "50rem"}}>
+        <form onSubmit={handleCreateSubmit} className="address-form">
           <div className="mb-3">
             <label for="exampleFormControlInput1" className="form-label">Address Title: </label>
             <input type="text" name="name" value={name} onChange={handleName} className="form-control" 
@@ -110,13 +110,13 @@ function Address() {
             <input type="text" name="city" value={city} onChange={handleCity} className="form-control" 
               id="exampleFormControlInput1" />
           </div>  
-          <button type="submit">Add</button>
+          <button className="btn btn-light" type="submit">Add Address</button>
         </form>
       </div>
       
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div>
+      <div className="address-form">
         <h2>Current Addresses</h2>
 
         {addresses.map((address) => (
@@ -137,8 +137,9 @@ function Address() {
             />
           </div>
         ))}
-      </div>
+      </div> 
     </div>
+  </div>
   ) : (
     <h1>Loading...</h1>
   );

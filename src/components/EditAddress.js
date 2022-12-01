@@ -8,7 +8,7 @@ navigate(`/profile/${userId}/address/${addressId}/edit`)
 
 return (
 <>
-<button type="submit" onClick={handleEdit}>Edit Address</button>
+<button className="btn btn-light" type="submit" onClick={handleEdit}>Edit Address</button>
 </>
     )
 }
