@@ -3,37 +3,65 @@ import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005"
+const API_URL = "http://localhost:5005";
 
-function BorrowedItems () {
-    const { user } = useContext(AuthContext);
-    const [items, setItems] = useState();
+function BorrowedItems() {
+  const { user } = useContext(AuthContext);
+  const [items, setItems] = useState();
 
-    useEffect(() => {
-        const fetchItems = async () => {
-            let response = await axios.get(`${API_URL}/item/${user._id}/borrowed`)
-            setItems(response.data.findItems)
-        }
-        fetchItems();
-    }, []);
+  useEffect(() => {
+    const fetchItems = async () => {
+      let response = await axios.get(`${API_URL}/item/${user._id}/borrowed`);
+      setItems(response.data.findItems);
+    };
+    fetchItems();
+  }, []);
 
-    return items? (
-        <div>
-          <h1>These items are currently borrowed:</h1>
-          {items.map(item => (
-                <div key={item._id}>
-                <p>Item name: {item.itemName}</p>
-                <p>Image: <img src={item.image} alt="item-pic"/></p>
-                <p>Description: {item.description}</p>
-                <p>Availability: {item.availability}</p>
-                </div>
-            ))}
-            <Link className="Link" to="/borrow">Borrow Another Item</Link>
-        </div>
-    )
-    : (
-        <h1>Loading...</h1>
-    )
+  return items ? (
+    <div
+      className="backgroundColor"
+      style={{ display: "flex", flexDirection: "column " }}
+    >
+      <div>
+        <h1 style={{ margin: "10px" }} className="textColor">
+          These items are currently borrowed:
+        </h1>
+      </div>
+      {/* <div>
+        <Link className="btn btn-light" to="/borrow">
+          Borrow Another Item
+        </Link>
+      </div> */}
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          margin: "0px",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}
+      >
+        {items.map((item) => (
+          <div
+            key={item._id}
+            className="card"
+            style={{ width: "22rem", marginTop: "50px" }}
+          >
+            <img src={item.image} alt="item-pic" className="card-img-top" />
+            <div className="card-body">
+              <h5 className="card-title">{item.itemName}</h5>
+              <p className="card-text">{item.description}</p>
+              <p className="card-text">Availability: {item.availability}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ) : (
+    <div className="container backgroundColor">
+      <h1>Loading...</h1>
+    </div>
+  );
 }
 
 export default BorrowedItems;
