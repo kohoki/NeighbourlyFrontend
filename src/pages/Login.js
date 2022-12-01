@@ -42,28 +42,32 @@ function Login() {
       <h1>Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
+      <div className="mb-3">
         <label>Username:</label>
         <input
           type="text"
           name="username"
           value={username}
           onChange={handleUsername}
+          className="form-control"
         />
-
-        <label>Password:</label>
+      </div>
+      <div className="mb-3">
+        <label for="exampleInputPassword1" className="form-label">Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
+          className="form-control" id="exampleInputPassword1"
         />
-
-        <button type="submit">Login</button>
+      </div>
+        <button type="submit" className="btn btn-primary">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link className="btn btn-primary" to={"/signup"}> Sign Up</Link>
     </div>
   );
 }

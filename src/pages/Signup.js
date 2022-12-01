@@ -40,32 +40,37 @@ function Signup() {
       <h1>Don't already have an account? Sign up</h1>
 
       <form onSubmit={handleSignupSubmit}>
+      <div className="mb-3">
         <label>Username:</label>
         <input
           type="text"
           name="username"
           value={username}
           onChange={handleUsername}
+          className="form-control"
         />
-
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
+      </div>
+      <div className="mb-3">
+        <label for="exampleInputEmail1" className="form-label">Email:</label>
+        <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" id="exampleInputEmail1" />
+      </div>
+      <div className="mb-3">
+        <label for="exampleInputPassword1" className="form-label">Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
+          className="form-control" id="exampleInputPassword1"
         />
-
-        <button type="submit">Sign Up</button>
+      </div>
+        <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link className="btn btn-primary" to={"/login"}> Login</Link>
     </div>
   );
 }
