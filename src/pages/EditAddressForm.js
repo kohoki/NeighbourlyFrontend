@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
 function EditAddressForm() {
   const { addressId, userId } = useParams();
@@ -61,60 +61,83 @@ function EditAddressForm() {
   return (
     <div className="backgroundColor textColor profile-edit">
       <h1>Update Your Address Details</h1>
-      <div style={{width: "50rem"}}>
+      <div style={{ width: "50rem" }}>
         <form onSubmit={handleCreateSubmit} className="address-form">
-        <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">Address Title: </label>
-        <input type="text" name="name" value={name} onChange={handleName} className="form-control" 
-            id="exampleFormControlInput1" />
-        </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
+              Address Title:{" "}
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleName}
+              className="form-control"
+              id="exampleFormControlInput1"
+            />
+          </div>
 
-        <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">Street Number: </label>
-        <input
-          type="text"
-          name="number"
-          value={number}
-          onChange={handleNumber}
-          className="form-control" 
-          id="exampleFormControlInput1"
-        />
-        </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
+              Street Number:{" "}
+            </label>
+            <input
+              type="text"
+              name="number"
+              value={number}
+              onChange={handleNumber}
+              className="form-control"
+              id="exampleFormControlInput1"
+            />
+          </div>
 
-        <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">Street Name: </label>
-        <input
-          type="text"
-          name="street"
-          value={street}
-          onChange={handleStreet}
-          className="form-control" 
-          id="exampleFormControlInput1"
-        />
-        </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
+              Street Name:{" "}
+            </label>
+            <input
+              type="text"
+              name="street"
+              value={street}
+              onChange={handleStreet}
+              className="form-control"
+              id="exampleFormControlInput1"
+            />
+          </div>
 
-        <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">Post Code: </label>
-        <input
-          type="text"
-          name="postcode"
-          value={postalCode}
-          onChange={handlePostalCode}
-          className="form-control" 
-          id="exampleFormControlInput1"
-        />
-        </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
+              Post Code:{" "}
+            </label>
+            <input
+              type="text"
+              name="postcode"
+              value={postalCode}
+              onChange={handlePostalCode}
+              className="form-control"
+              id="exampleFormControlInput1"
+            />
+          </div>
 
-        <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">City: </label>
-        <input type="text" name="city" value={city} onChange={handleCity} className="form-control" 
-          id="exampleFormControlInput1" />
-        </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
+              City:{" "}
+            </label>
+            <input
+              type="text"
+              name="city"
+              value={city}
+              onChange={handleCity}
+              className="form-control"
+              id="exampleFormControlInput1"
+            />
+          </div>
 
-        <button className="btn btn-light" type="submit">Update</button>
-      </form>
+          <button className="btn btn-light" type="submit">
+            Update
+          </button>
+        </form>
       </div>
-      
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
