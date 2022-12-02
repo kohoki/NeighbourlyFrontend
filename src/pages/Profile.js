@@ -22,7 +22,7 @@ function Profile() {
   return profile ? (
     <div className="backgroundColor2 textColor">
       <div className="profile-header">
-        <h1>Hi {profile.username}! Have a look on your profile!</h1>
+        <h1>Hi {profile.username}! Take a look at your profile!</h1>
       </div>
       <div className="profile">
         <div className="left-side">

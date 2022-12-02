@@ -68,7 +68,7 @@ function Messages() {
                         style={{ color: "black", textAlign: "left" }}
                         class="card-title"
                       >
-                        person might borrow some: {message.borrower.username}
+                        borrower of item: {message.borrower.username}
                       </p>
                     </div>
                   </li>
