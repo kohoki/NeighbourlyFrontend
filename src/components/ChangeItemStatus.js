@@ -1,11 +1,6 @@
 import axios from "axios";
 
-<<<<<<< HEAD
 const API_URL = "http://localhost:5005";
-=======
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app"
-;
->>>>>>> master
 
 function ChangeItemStatus({ itemId, borrower }) {
   function refreshPage() {
