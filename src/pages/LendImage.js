@@ -19,12 +19,19 @@ function LendImage() {
   };
 
   return (
-    <div>
-      <h1>Add an image for your item</h1>
+    <div className="backgroundColor">
+      <h1 className="textColor HomeH2">Add an image for your item</h1>
+      <div className="InfoBox2">
       <form onSubmit={handleUpload}>
-        <input type="file" name="imageUrl" accept="image/png, image/jpg" />
-        <button type="submit">Upload</button>
+      <div className="mb-3" style={{width: "30vw"}}>
+      <div class="mb-3">
+      <label for="formFile" class="form-label">Images must be .png or .jpg</label>
+        <input class="form-control" type="file" id="formFile" name="imageUrl" accept="image/png, image/jpg" />
+        </div>
+        </div>
+        <button className="btn btn-light" type="submit">Upload</button>
       </form>
+    </div>
     </div>
   );
 }
