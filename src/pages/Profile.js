@@ -20,13 +20,13 @@ function Profile() {
   }, []);
 
   return profile ? (
-    <div className="backgroundColor textColor">
+    <div className="backgroundColor2 textColor">
       <div className="profile-header">
        <h1>Hi {profile.username}! Have a look on your profile!</h1> 
       </div>
         <div className="profile">
           <div className="left-side">
-            <div className="card" style={{width: "30rem", height: "50rem", display: "flex", flexDirection: "column", gap: "1rem"}}>
+            <div className="card" style={{width: "30rem", height: "50rem", display: "flex", flexDirection: "column", gap: "1rem", textAlign: "center"}}>
               <img className="card-img-top" src={profile.userImage} alt="profile-pic"/>
               <div className="card-body">
                 <h3 className="card-subtitle mb-2 text-muted">

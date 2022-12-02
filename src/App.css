@@ -66,6 +66,7 @@ font-weight: bold;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    padding-bottom: 1rem;
 }
 
 .profile-edit {
@@ -140,6 +141,7 @@ font-weight: bold;
     align-items: flex-start;
     gap: 1rem;
     margin-top: 1rem;
+    text-align: left;
 }
 
 .address-form > button {
