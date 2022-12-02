@@ -37,40 +37,59 @@ function Signup() {
 
   return (
     <div /*className="SignupPage"*/ className="backgroundColor">
-      <h1 className="textColor">Don't already have an account? Sign up today</h1>
+      <h1 className="textColor">
+        Don't already have an account? Sign up today
+      </h1>
 
       <form onSubmit={handleSignupSubmit}>
-      <div className="mb-3" style={{width: "30vw"}}>
-        <label className="textColor">Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsername}
-          className="form-control"
-        />
-      </div>
-      <div className="mb-3" style={{width: "30vw"}}>
-        <label for="exampleInputEmail1" className="form-label textColor">Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" id="exampleInputEmail1" />
-      </div>
-      <div className="mb-3" style={{width: "30vw"}}>
-        <label for="exampleInputPassword1" className="form-label textColor">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-          className="form-control" id="exampleInputPassword1"
-        />
-      </div>
-        <button type="submit" className="btn btn-light">Sign Up</button>
+        <div className="mb-3" style={{ width: "30vw" }}>
+          <label className="textColor">Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleUsername}
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3" style={{ width: "30vw" }}>
+          <label for="exampleInputEmail1" className="form-label textColor">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            className="form-control"
+            id="exampleInputEmail1"
+          />
+        </div>
+        <div className="mb-3" style={{ width: "30vw" }}>
+          <label for="exampleInputPassword1" className="form-label textColor">
+            Password:
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <button type="submit" className="btn btn-light">
+          Sign Up
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p className="textColor">Already have account?</p>
-      <Link className="btn btn-light" to={"/login"}> Login</Link>
+      <Link className="btn btn-light" to={"/login"}>
+        {" "}
+        Login
+      </Link>
     </div>
   );
 }

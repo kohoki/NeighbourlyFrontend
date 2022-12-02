@@ -9,11 +9,11 @@ function EditItem({ itemId, userId }) {
   };
 
   return (
-    <>
-      <button type="submit" onClick={handleEdit}>
+    <div style={{ marginBottom: "10px" }}>
+      <button className="btn btn-secondary" type="submit" onClick={handleEdit}>
         Edit Item Details
       </button>
-    </>
+    </div>
   );
 }
 

@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app"
-;
+const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
 function ChangeItemStatus({ itemId, borrower }) {
   function refreshPage() {
@@ -20,11 +19,15 @@ function ChangeItemStatus({ itemId, borrower }) {
   };
 
   return (
-    <>
-      <button className="Button" type="button" onClick={availableAgain}>
+    <div style={{ marginBottom: "10px" }}>
+      <button
+        className="btn btn-secondary"
+        type="button"
+        onClick={availableAgain}
+      >
         Item is available again.
       </button>
-    </>
+    </div>
   );
 }
 

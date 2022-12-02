@@ -18,26 +18,53 @@ function BorrowedItems() {
   }, []);
 
   return items ? (
-    <div>
-      <h1>These items are currently borrowed:</h1>
-      {items.map((item) => (
-        <div key={item._id}>
-          <p>Item name: {item.itemName}</p>
-          <p>
-            Image: <img src={item.image} alt="item-pic" />
-          </p>
-          <p>Description: {item.description}</p>
-          <p>Availability: {item.availability}</p>
-        </div>
-      ))}
-      <Link className="Link" to="/borrow">
-        Borrow Another Item
-      </Link>
+    <div
+      className="backgroundColor"
+      style={{ display: "flex", flexDirection: "column " }}
+    >
+      <div>
+        <h1 style={{ margin: "10px" }} className="textColor">
+          These items are currently borrowed:
+        </h1>
+      </div>
+      {/* <div>
+        <Link className="btn btn-light" to="/borrow">
+          Borrow Another Item
+        </Link>
+      </div> */}
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          margin: "0px",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}
+      >
+        {items.map((item) => (
+          <div
+            key={item._id}
+            className="card"
+            style={{ width: "22rem", marginTop: "50px" }}
+          >
+            <img src={item.image} alt="item-pic" className="card-img-top" />
+            <div className="card-body">
+              <h5 className="card-title">{item.itemName}</h5>
+              <p style={{ color: "black" }} className="card-text">
+                {item.description}
+              </p>
+              <p style={{ color: "black" }} className="card-text">
+                Availability: {item.availability}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   ) : (
     <div class="spinner-border text-light" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
   );
 }
 
