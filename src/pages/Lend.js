@@ -35,8 +35,8 @@ function Lend() {
 
   return (
     <div className="backgroundColor">
-      <h1 className="textColor">Sharing is caring. What would you like to lend?</h1>
-      <h2 className="textColor">Add your item's details</h2>
+      <h1 className="textColor HomeH2">Sharing is caring. What would you like to lend?</h1>
+      <h2 className="textColor HomeH2">Add your item's details</h2>
 
       <form onSubmit={handleCreateSubmit}>
       <div className="mb-3" style={{width: "30vw"}}>

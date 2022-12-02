@@ -9,10 +9,7 @@ function About() {
         As co-founders of Neighbourly, we asked ourselves, who really wants to buy a lawnmower for that one instance that you spontaneously decide to become a gardening fanatic? What better solution than to rely on the kindness of strangers or, in this case, your very own neighbours!
       </p>
         <p className="Info">
-        Using your very own Neighbourly account you can check out all the odd bits and bobs that are up for grabs, as well as put your own up for lending.
-      </p>
-        <p className="Info">
-        Using your very own Neighbourly account you can check out all the odd bits and bobs that are up for grabs, as well as put your own up for lending.
+        Using your Neighbourly account you can check out all the odd bits and bobs that are up for grabs, as well as put your own up for lending.
       </p>
       <div className="InfoBox">
 <a className="PersonBox" target="_blank" href="https://github.com/lutrx">
