@@ -1,3 +1,5 @@
+![logo_of_the_app](C:\Users\lisab\desktop\Ironhack\Project_3\NeighbourlyFrontend\public\images\logo.png)
+
 # Project 3 | Neighbourly |
 
 ## Description
