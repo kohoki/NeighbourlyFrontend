@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
 function Borrow() {
   //   const { user } = useContext(AuthContext);

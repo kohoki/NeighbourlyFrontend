@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 import EditAddress from "../components/EditAddress";
 import DeleteAddress from "../components/DeleteAddress";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
 function Address() {
   const { user } = useContext(AuthContext);

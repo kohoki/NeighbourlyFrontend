@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
 
 function DeleteItem({ itemId, setItems, userId }) {
   const handleDelete = async (e) => {
