@@ -54,6 +54,107 @@ font-weight: bold;
     font-weight: bold;
 }
 
+.profile-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.profile-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.address-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.link-box-profile {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.edit-profile-image-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-profile-form > button {
+    align-self: center;
+    width: 10rem;
+}
+
+.address-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+.address-form {
+    background-color: #FF9666;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column; 
+    padding: 2rem;
+}
+
+.current-addresses {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.address-form > button {
+    align-self: center;
+    width: 10rem; 
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 .HomeH3 {
     font-size: 40px;
 }
@@ -96,6 +197,20 @@ padding-top: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
+}
+
+.InfoBox2 {
+    background-color: #FF9666;
+    color: white;
+    border: 5px solid #FF9666;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .PersonBox {

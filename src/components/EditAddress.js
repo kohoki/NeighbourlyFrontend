@@ -6,6 +6,7 @@ function EditAddress({ addressId, userId }) {
     navigate(`/profile/${userId}/address/${addressId}/edit`);
   };
 
+<<<<<<< HEAD
   return (
     <>
       <button type="submit" onClick={handleEdit}>
@@ -13,6 +14,13 @@ function EditAddress({ addressId, userId }) {
       </button>
     </>
   );
+=======
+return (
+<>
+<button className="btn btn-light" type="submit" onClick={handleEdit}>Edit Address</button>
+</>
+    )
+>>>>>>> master
 }
 
 export default EditAddress;

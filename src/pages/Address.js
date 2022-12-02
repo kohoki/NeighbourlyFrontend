@@ -62,50 +62,66 @@ function Address() {
   };
 
   return addresses ? (
-    <div>
-      <h1>Address Info</h1>
-      <h2>Add an Address</h2>
-      <form onSubmit={handleCreateSubmit}>
-        <label>Address Title: </label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-
-        <label>Street Number: </label>
-        <input
-          type="text"
-          name="number"
-          value={number}
-          onChange={handleNumber}
-        />
-
-        <label>Street Name: </label>
-        <input
-          type="text"
-          name="street"
-          value={street}
-          onChange={handleStreet}
-        />
-
-        <label>Post Code: </label>
-        <input
-          type="text"
-          name="postcode"
-          value={postalCode}
-          onChange={handlePostalCode}
-        />
-
-        <label>City: </label>
-        <input type="text" name="city" value={city} onChange={handleCity} />
-
-        <button type="submit">Add</button>
-      </form>
+    <div className="backgroundColor textColor profile-edit">
+      <h1>Manage Your Addresses</h1>
+      <div className="address-box">
+       <div style={{width: "50rem"}}>
+        <form onSubmit={handleCreateSubmit} className="address-form">
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Address Title: </label>
+            <input type="text" name="name" value={name} onChange={handleName} className="form-control" 
+            id="exampleFormControlInput1" />
+          </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Street Number: </label>
+            <input
+              type="text"
+              name="number"
+              value={number}
+              onChange={handleNumber}
+              className="form-control" 
+              id="exampleFormControlInput1"
+            />
+          </div>
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Street Name: </label>
+            <input
+              type="text"
+              name="street"
+              value={street}
+              onChange={handleStreet}
+              className="form-control" 
+              id="exampleFormControlInput1"
+            />
+          </div>  
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">Post Code: </label>
+            <input
+              type="text"
+              name="postcode"
+              value={postalCode}
+              onChange={handlePostalCode}
+              className="form-control" 
+              id="exampleFormControlInput1"
+            />
+          </div>  
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">City: </label>
+            <input type="text" name="city" value={city} onChange={handleCity} className="form-control" 
+              id="exampleFormControlInput1" />
+          </div>  
+          <button className="btn btn-light" type="submit">Add Address</button>
+        </form>
+      </div>
+      
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div>
+      <div className="address-form">
         <h2>Current Addresses</h2>
 
         {addresses.map((address) => (
-          <div key={address._id}>
-            <ul>
+          <div key={address._id} className="current-addresses">
+            <ul style={{padding: "0"}}>
               <li className="ListItem">{address.nameOfAddress}</li>
               <li className="ListItem">
                 {address.number} {address.street}
@@ -121,8 +137,9 @@ function Address() {
             />
           </div>
         ))}
-      </div>
+      </div> 
     </div>
+  </div>
   ) : (
     <div class="spinner-border text-light" role="status">
       <span class="visually-hidden">Loading...</span>

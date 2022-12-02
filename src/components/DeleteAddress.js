@@ -17,7 +17,7 @@ function DeleteAddress({ addressId, setAddresses, userId }) {
 
   return (
     <>
-      <button type="submit" onClick={handleDelete}>
+      <button className="btn btn-light" type="submit" onClick={handleDelete}>
         Delete Address
       </button>
     </>
