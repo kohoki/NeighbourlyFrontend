@@ -6,40 +6,40 @@ Neighbourly is a platform on which neighbours can get in touch with each other b
 
 ## User Stories
 
-    - 404: As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
-    - Signup: As an anon I can sign up in the platform so that I can start borrowing and lending items
-    - Login: As a user I can login to the platform so that I can start borrowing and lending items
-    - Logout: As a user I can logout from the platform so no one else can use it
-    - Add an item to lend: As a user I can create a new item for lending
-    - Borrow items: As a user I can browse through the list of items to borrow
-    - Contact lender: As a user I can communicate via messaging with the lender to clarify the details for borrowing the item
-    - User profile: I can edit my user profile by adding an image, addresses, first and last name and finally adding a description about me. 
+- 404: As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+- Signup: As an anon I can sign up in the platform so that I can start borrowing and lending items
+- Login: As a user I can login to the platform so that I can start borrowing and lending items
+- Logout: As a user I can logout from the platform so no one else can use it
+- Add an item to lend: As a user I can create a new item for lending
+- Borrow items: As a user I can browse through the list of items to borrow
+- Contact lender: As a user I can communicate via messaging with the lender to clarify the details for borrowing the item
+- User profile: I can edit my user profile by adding an image, addresses, first and last name and finally adding a description about me. 
 
 ## Backlog
 
-    - Create communities and groups e.g. a specific community for a certain area of a city
-    - Rating feature: users can rate the lending/borrowing process with a star system
-    - Comment function: users can insert comments in the rating feature
-    - Make items for lending invisible if user don't wish to lend them at the moment
-    - Search bar: ability to search other users or items
-    - Option to delete the user profile
+- Create communities and groups e.g. a specific community for a certain area of a city
+- Rating feature: users can rate the lending/borrowing process with a star system
+- Comment function: users can insert comments in the rating feature
+- Make items for lending invisible if user don't wish to lend them at the moment
+- Search bar: ability to search other users or items
+- Option to delete the user profile
 
 # Client
 
 ## Pages
 
-    - Welcome page (public)
-    - Sign in (public)
-    - Login (public)
-    - About Neighbourly (public)
-    - Help (public)
-    - Home (user only)
-    - Profile and belonging editing pages (user details and addresses) (user only)
-    - Lend item and edit/delete item pages (user only)
-    - Borrow (user only)
-    - Contact lender (user only)
-    - Lend (user only)
-    - Messages and details of message (user only)
+- Welcome page (public)
+- Sign in (public)
+- Login (public)
+- About Neighbourly (public)
+- Help (public)
+- Home (user only)
+- Profile and belonging editing pages (user details and addresses) (user only)
+- Lend item and edit/delete item pages (user only)
+- Borrow (user only)
+- Contact lender (user only)
+- Lend (user only)
+- Messages and details of message (user only)
 
 # Server
 
