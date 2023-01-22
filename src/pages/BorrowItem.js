@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function BorrowItem() {
   const [lender, setLender] = useState();
@@ -38,7 +38,8 @@ function BorrowItem() {
       console.log(requestBody);
 
       await axios.post(`${API_URL}/messages/create`, requestBody);
-      navigate(`/profile/${user._id}`);
+      //navigate(`/profile/${user._id}`);
+      navigate("/messages");
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

@@ -7,7 +7,7 @@ import EditItem from "../components/EditItem";
 import EditItemImage from "../components/EditItemImage";
 import ChangeItemStatus from "../components/ChangeItemStatus";
 
-const API_URL = "https://calm-lime-cobra-gear.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function LentItems() {
   const { user } = useContext(AuthContext);

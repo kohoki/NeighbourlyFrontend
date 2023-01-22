@@ -8,8 +8,8 @@ function Navbar() {
   return (
     <nav /*className="Navbar"*/ className="navbar navbar-expand-lg bg-light ">
       {!isLoggedIn && (
-        <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="navbarNav">
+         <div className="container-fluid">
+          <div className="collapse navbar-collapse" id="navbarNav" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
             <ul className="navbar-nav">
               <li className="nav-item me-5">
                 <Link
@@ -49,7 +49,8 @@ function Navbar() {
               </li>
             </ul>
           </div>
-        </div>
+        </div> 
+        
       )}
 
       {isLoggedIn && (
@@ -65,7 +66,7 @@ function Navbar() {
                     />
                   </Link>
                 </li>
-                <li className="nav-item me-5">
+                <li className="nav-item me-5" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link
                     className="nav-link active navbar-brand"
                     to={`/profile/${user._id}`}
@@ -73,32 +74,32 @@ function Navbar() {
                     {user.username}'s Profile
                   </Link>
                 </li>
-                <li className="nav-item me-5">
+                <li className="nav-item me-5" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link className="nav-link active navbar-brand" to="/borrow">
                     Borrow
                   </Link>
                 </li>
-                <li className="nav-item me-5">
+                <li className="nav-item me-5" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link className="nav-link active navbar-brand" to="/lend">
                     Lend
                   </Link>
                 </li>
-                <li className="nav-item me-5">
+                <li className="nav-item me-5" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link className="nav-link active navbar-brand" to="/messages">
                     Messages
                   </Link>
                 </li>
-                <li className="nav-item me-5 ">
+                <li className="nav-item me-5 " style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link className="nav-link active navbar-brand" to="/about">
                     About Neighbourly
                   </Link>
                 </li>
-                <li className="nav-item me-5 ">
+                <li className="nav-item me-5 " style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link className="nav-link active navbar-brand" to="/help">
                     Help
                   </Link>
                 </li>
-                <li className="nav-item me-5">
+                <li className="nav-item me-5" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   <Link
                     className="nav-link active navbar-brand"
                     onClick={logOutUser}
